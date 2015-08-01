@@ -1,0 +1,2097 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<Export xmlns="http://www.nevigo.com/schemas/articydraft/2.4/XmlContentExport_FullProject.xsd" Version="2.4" CreatorTool="articy:draft" CreatorVersion="2.4.0" CreatedOn="2015-06-19T15:21:54Z">
+  <Settings>
+    <ExportMarkup>0</ExportMarkup>
+    <ExportQueries>1</ExportQueries>
+    <WriteNamespace>1</WriteNamespace>
+    <WriteAllVariables>0</WriteAllVariables>
+  </Settings>
+  <Content>
+    <Project Id="0x0100000000000001">
+      <DisplayName>car game dialogue</DisplayName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037927937</Url>
+    </Project>
+    <ProjectSettings Id="0x03000000F917511B">
+      <FlowSettings>
+        <BuiltInScriptSupport>1</BuiltInScriptSupport>
+        <GridSize>25</GridSize>
+        <GridSizeEnforced>0</GridSizeEnforced>
+        <SpacingHorizontal>50</SpacingHorizontal>
+        <SpacingVertical>50</SpacingVertical>
+        <SpacingEnforced>0</SpacingEnforced>
+      </FlowSettings>
+      <JourneySettings>
+        <BackgroundImageMode>FromNode</BackgroundImageMode>
+        <BackgroundImagePositioningMode>Filling</BackgroundImagePositioningMode>
+        <BackgroundColorMode>Custom</BackgroundColorMode>
+        <BackgroundColor>#798F93</BackgroundColor>
+        <BackgroundColorGradientMode>On</BackgroundColorGradientMode>
+        <Duration>10</Duration>
+        <TransitionMode>Animated</TransitionMode>
+      </JourneySettings>
+      <LocationSettings>
+        <ShowDisplayNameForZone>1</ShowDisplayNameForZone>
+        <DropShadowForZone>1</DropShadowForZone>
+        <DisplayNameSizeForZone>11</DisplayNameSizeForZone>
+        <DisplayNameColorForZone>#FFFFFF</DisplayNameColorForZone>
+        <ShowDisplayNameForPath>1</ShowDisplayNameForPath>
+        <DropShadowForPath>1</DropShadowForPath>
+        <DisplayNameSizeForPath>11</DisplayNameSizeForPath>
+        <DisplayNameColorForPath>#FFFFFF</DisplayNameColorForPath>
+        <ShowDisplayNameForImage>0</ShowDisplayNameForImage>
+        <DropShadowForImage>1</DropShadowForImage>
+        <DisplayNameSizeForImage>11</DisplayNameSizeForImage>
+        <DisplayNameColorForImage>#FFFFFF</DisplayNameColorForImage>
+        <ShowDisplayNameForSpot>1</ShowDisplayNameForSpot>
+        <DropShadowForSpot>1</DropShadowForSpot>
+        <DisplayNameColorForSpot>#FFFFFF</DisplayNameColorForSpot>
+        <SpotStyleKind>Flag</SpotStyleKind>
+        <SpotStyleSize>Large</SpotStyleSize>
+        <ShowDisplayNameForLink>1</ShowDisplayNameForLink>
+        <DropShadowForLink>1</DropShadowForLink>
+        <DisplayNameColorForLink>#FFFFFF</DisplayNameColorForLink>
+        <LinkStyleKind>PreviewImage</LinkStyleKind>
+        <LinkStyleSize>Large</LinkStyleSize>
+        <DropShadowForText>1</DropShadowForText>
+      </LocationSettings>
+      <ExternalApplications/>
+    </ProjectSettings>
+    <Assets Id="0x030000004C3DAF54">
+      <DisplayName>Assets</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Assets>
+    <AssetsUserFolder Id="0x01000000000000FE">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Images</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ufo_707D5964</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x707D5964</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928190</Url>
+    </AssetsUserFolder>
+    <AssetsUserFolder Id="0x0100000000000100">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Videos</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ufo_554C11EE</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x554C11EE</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928192</Url>
+    </AssetsUserFolder>
+    <AssetsUserFolder Id="0x0100000000000102">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Audio</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ufo_9058EFA1</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x9058EFA1</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928194</Url>
+    </AssetsUserFolder>
+    <AssetsUserFolder Id="0x0100000000000104">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Documents</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ufo_D1320647</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xD1320647</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928196</Url>
+    </AssetsUserFolder>
+    <AssetsUserFolder Id="0x0100000000000106">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Miscellaneous</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ufo_6CAB292C</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x6CAB292C</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928198</Url>
+    </AssetsUserFolder>
+    <Documents Id="0x03000000103AA2F0">
+      <DisplayName>Documents</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Documents>
+    <Entities Id="0x03000000AC61A2B3">
+      <DisplayName>Entities</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Entities>
+    <Features Id="0x03000000D2404DC0">
+      <DisplayName>Features</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Features>
+    <Flow Id="0x0300000043CE43F7">
+      <DisplayName>Flow</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Flow>
+    <GlobalVariables Id="0x030000002B4F4C54">
+      <DisplayName>Global Variables</DisplayName>
+      <Color>#C8E2E7</Color>
+    </GlobalVariables>
+    <Journeys Id="0x03000000236F7272">
+      <DisplayName>Journeys</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Journeys>
+    <Locations Id="0x030000003140D3AC">
+      <DisplayName>Locations</DisplayName>
+      <Color>#C8E2E7</Color>
+    </Locations>
+    <ObjectCustomization Id="0x0300000029CF057C">
+      <DisplayName>Template Design</DisplayName>
+      <Color>#C8E2E7</Color>
+    </ObjectCustomization>
+    <ObjectTemplates Id="0x030000009AF68DCD">
+      <DisplayName>Templates</DisplayName>
+      <Color>#C8E2E7</Color>
+    </ObjectTemplates>
+    <PropertyTemplates Id="0x030000002C0951AE">
+      <DisplayName>Property Definitions</DisplayName>
+      <Color>#C8E2E7</Color>
+    </PropertyTemplates>
+    <TypedObjectTemplates Id="0x0300000078B45A71">
+      <DisplayName>Entities</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x030000006D1BC275">
+      <DisplayName>Flow Fragments</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000030B5ACF">
+      <DisplayName>Dialogue Fragments</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x030000008DD5C0F2">
+      <DisplayName>Dialogues</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x0300000092CF598E">
+      <DisplayName>Locations</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x0300000030635118">
+      <DisplayName>Assets</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000A715C057">
+      <DisplayName>Zones</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x030000005314E813">
+      <DisplayName>Paths</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x030000004264B29C">
+      <DisplayName>Spots</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000FB371D5C">
+      <DisplayName>Links</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x0300000013DF3A1A">
+      <DisplayName>Hubs</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000ADA9FA17">
+      <DisplayName>Jumps</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000ECC00F83">
+      <DisplayName>Documents</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000F514339C">
+      <DisplayName>Texts</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x0300000096812FC1">
+      <DisplayName>Texts (in locations)</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000CC5A07F0">
+      <DisplayName>Images (in locations)</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000DCC67F9D">
+      <DisplayName>Conditions</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedObjectTemplates Id="0x03000000BA022E2F">
+      <DisplayName>Instructions</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedObjectTemplates>
+    <TypedPropertyTemplates Id="0x030000006E2C178B">
+      <DisplayName>Numbers</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedPropertyTemplates>
+    <TypedPropertyTemplates Id="0x03000000BB12F1B8">
+      <DisplayName>Booleans</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedPropertyTemplates>
+    <TypedPropertyTemplates Id="0x030000006F82D78E">
+      <DisplayName>Texts</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedPropertyTemplates>
+    <TypedPropertyTemplates Id="0x0300000037DCE3F0">
+      <DisplayName>Drop-down lists</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedPropertyTemplates>
+    <TypedPropertyTemplates Id="0x030000003630A240">
+      <DisplayName><![CDATA[Slots & Strips]]></DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedPropertyTemplates>
+    <TypedPropertyTemplates Id="0x03000000D745C449">
+      <DisplayName>Scripts</DisplayName>
+      <Color>#C8E2E7</Color>
+    </TypedPropertyTemplates>
+    <Connection Id="0x010000000000014F">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_E6547492</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928271</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000012F" PinRef="0x0100000000000133"/>
+      <Target IdRef="0x0100000000000149" PinRef="0x010000000000014C"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x010000000000015D">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_BBEB0047</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928285</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000012F" PinRef="0x0100000000000133"/>
+      <Target IdRef="0x0100000000000157" PinRef="0x010000000000015A"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000177">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_F6248EAC</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928311</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000164" PinRef="0x0100000000000168"/>
+      <Target IdRef="0x0100000000000171" PinRef="0x0100000000000174"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x010000000000017E">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_975B8041</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928318</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000164" PinRef="0x0100000000000168"/>
+      <Target IdRef="0x0100000000000178" PinRef="0x010000000000017B"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001A5">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_9498201D</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928357</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000017F" PinRef="0x0100000000000181"/>
+      <Target IdRef="0x0100000000000186" PinRef="0x0100000000000194"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001A6">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_CF91199B</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928358</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000017F" PinRef="0x0100000000000181"/>
+      <Target IdRef="0x0100000000000199" PinRef="0x01000000000001A0"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001C6">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_4C3488C0</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928390</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001B3" PinRef="0x01000000000001B5"/>
+      <Target IdRef="0x01000000000001C0" PinRef="0x01000000000001C1"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001C7">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_6AC0C6EF</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928391</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001B3" PinRef="0x01000000000001B5"/>
+      <Target IdRef="0x01000000000001BA" PinRef="0x01000000000001BB"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001DB">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_41F8AB28</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928411</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001C8" PinRef="0x01000000000001CA"/>
+      <Target IdRef="0x01000000000001CF" PinRef="0x01000000000001D0"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001DC">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_8DC629C0</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928412</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001C8" PinRef="0x01000000000001CA"/>
+      <Target IdRef="0x01000000000001D5" PinRef="0x01000000000001D6"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001E3">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_6E3714B2</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928419</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001C8" PinRef="0x01000000000001CA"/>
+      <Target IdRef="0x01000000000001DD" PinRef="0x01000000000001E0"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001FD">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_EB9A495D</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928445</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001F0" PinRef="0x01000000000001F2"/>
+      <Target IdRef="0x01000000000001EA" PinRef="0x01000000000001EB"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000001FE">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_8BEF883D</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928446</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000001F0" PinRef="0x01000000000001F2"/>
+      <Target IdRef="0x01000000000001F7" PinRef="0x01000000000001F8"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000213">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_8EDF413C</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928467</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000020C" PinRef="0x010000000000020E"/>
+      <Target IdRef="0x0100000000000206" PinRef="0x0100000000000207"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000214">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_4B63A5F9</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928468</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000020C" PinRef="0x010000000000020E"/>
+      <Target IdRef="0x0100000000000200" PinRef="0x0100000000000201"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000228">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_669B8C2A</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928488</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000221" PinRef="0x0100000000000223"/>
+      <Target IdRef="0x0100000000000215" PinRef="0x0100000000000216"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000229">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_83288BF4</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928489</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000221" PinRef="0x0100000000000223"/>
+      <Target IdRef="0x010000000000021B" PinRef="0x010000000000021C"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x010000000000023D">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_2C59D105</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928509</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000236" PinRef="0x0100000000000238"/>
+      <Target IdRef="0x010000000000022A" PinRef="0x010000000000022B"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x010000000000023E">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_18FE8106</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928510</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000236" PinRef="0x0100000000000238"/>
+      <Target IdRef="0x0100000000000230" PinRef="0x0100000000000231"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000253">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_C940A64C</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928531</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000024B" PinRef="0x010000000000024D"/>
+      <Target IdRef="0x0100000000000245" PinRef="0x0100000000000246"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000267">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_3F193B60</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928551</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000260" PinRef="0x0100000000000262"/>
+      <Target IdRef="0x0100000000000254" PinRef="0x0100000000000255"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x0100000000000268">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_B48E64DE</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928552</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000260" PinRef="0x0100000000000262"/>
+      <Target IdRef="0x010000000000025A" PinRef="0x010000000000025B"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x010000000000027C">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_D3318023</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928572</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000275" PinRef="0x0100000000000277"/>
+      <Target IdRef="0x0100000000000269" PinRef="0x010000000000026A"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x010000000000027D">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_E45C4A0E</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928573</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000275" PinRef="0x0100000000000277"/>
+      <Target IdRef="0x010000000000026F" PinRef="0x0100000000000270"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002BC">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_C4746D85</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928636</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000284" PinRef="0x0100000000000286"/>
+      <Target IdRef="0x01000000000002B0" PinRef="0x01000000000002B1"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002BD">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_AEBBA6E5</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928637</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000284" PinRef="0x0100000000000286"/>
+      <Target IdRef="0x01000000000002AA" PinRef="0x01000000000002AB"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002BE">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_320A6519</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928638</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000297" PinRef="0x0100000000000299"/>
+      <Target IdRef="0x01000000000002A4" PinRef="0x01000000000002A5"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002BF">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_D07863A4</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928639</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x0100000000000284" PinRef="0x0100000000000286"/>
+      <Target IdRef="0x01000000000002B6" PinRef="0x01000000000002B7"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002D4">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_70250F17</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928660</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000002C7" PinRef="0x01000000000002C9"/>
+      <Target IdRef="0x01000000000002CE" PinRef="0x01000000000002CF"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002DB">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_36B4BC72</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928667</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x01000000000002C7" PinRef="0x01000000000002C9"/>
+      <Target IdRef="0x01000000000002D5" PinRef="0x01000000000002D8"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Connection Id="0x01000000000002E4">
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Con_BDDE7410</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928676</Url>
+      <Label Count="0"/>
+      <Source IdRef="0x010000000000017F" PinRef="0x0100000000000181"/>
+      <Target IdRef="0x01000000000002DE" PinRef="0x01000000000002E1"/>
+      <ShowLabel>0</ShowLabel>
+    </Connection>
+    <Dialogue Id="0x0100000000000149">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Talk to the barmaid</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA["Can I help you sugar?"
+
+"I'm looking for some information]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_5626AD2D</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x5626AD2D</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928265</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000014C" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000014D" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="742" Y="111"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000157">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Try steal some bullets from the blind man</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[I sat next to him and ordered a drink. Waiting until he was distracted by his drink, I slowly moved my hand towards his row of bullets. 
+
+"Don't come no closer, you young cus. Just cause I's not able to see you, don't mean I be hearing nought." 
+
+"Sorry old timer. Dog eat dog world and all that." 
+
+The old man snorted, "and I thought it was bad bein' old before the Fall..." 
+
+I don't know why, but something about what he said give me the guilt. 
+
+"Maybe I can do something for you? To make things right between us?"
+
+He thought for a second, "I sure would like to smell me some of those Coyote Point Roses one last time..."
+
+"I'll see what I can do." 
+
+{quest active, but not complete}
+
+"You get that flower for me yet?"
+
+"Not yet old timer. Working on it, though."
+
+{quest active, have flower}
+
+"Here you go old timer."
+
+His fingers, thin and knobbled, fumbled about in front of him for the flower. When I handed it over, he gave it a powerful sniff. I thought for a moment he forgot I was there but, without a word, he slid three bullets in my direction. 
+
+Wasn't expecting to get paid, but I took 'em, nonetheless.   
+
+{quest complete}
+
+"Thanks again, kid."]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_CAE51179</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xCAE51179</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928279</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000015A" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000015B" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="745" Y="344"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000171">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Gas</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_C67E33AF</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xC67E33AF</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928305</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000174" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000175" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="727.59649254049" Y="618.914545198117"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>6</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000178">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Food</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_A8F5216D</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xA8F5216D</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928312</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000017B" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000017C" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="728.59649254049" Y="874.914545198117"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>8</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000186">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Rest up a while</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_3551E79C</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x3551E79C</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928326</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000194" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000195" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1538.09649254049" Y="122.446096881579"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000199">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Brave the old mountain pass</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_903A1D75</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x903A1D75</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928345</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001A0" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001A1" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1541.09649254049" Y="355.446096881579"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001BA">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Rest up a while</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_8FCAFE17</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x8FCAFE17</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928378</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001BB" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001BC" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1537.69564333671" Y="631.802858253617"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001C0">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Search campsite</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA['gone to Reevesville']]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_23304008</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x23304008</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928384</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001C1" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001C2" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1540.69564333671" Y="864.802858253617"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001CF">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Gas</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_7B2ACEC7</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x7B2ACEC7</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928399</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001D0" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001D1" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="2325.83609956275" Y="355.740504780048"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001D5">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Food</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_2C0B5A02</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x2C0B5A02</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928405</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001D6" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001D7" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="2322.83609956275" Y="122.740504780048"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001DD">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Info</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_28981B1F</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x28981B1F</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928413</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001E0" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001E1" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="2322.33609956275" Y="619.240504780048"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>25</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001EA">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Gas</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_C28CEADE</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xC28CEADE</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928426</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001EB" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001EC" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3109.21498846928" Y="354.542172041955"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000001F7">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Quest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_56A3D917</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x56A3D917</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928439</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001F8" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001F9" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3106.21498846928" Y="121.542172041955"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000200">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Food</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_4270650C</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x4270650C</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928448</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000201" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000202" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3113.15515371119" Y="865.993873075203"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000206">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Quest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_D2FCDF62</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xD2FCDF62</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928454</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000207" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000208" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3110.15515371119" Y="632.993873075203"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000215">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Info</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_F130B258</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xF130B258</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928469</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000216" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000217" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3925.51522268579" Y="358.98600055059"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x010000000000021B">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Heal up</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_C805D412</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xC805D412</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928475</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000021C" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000021D" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3922.51522268579" Y="125.98600055059"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x010000000000022A">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Gas</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_B00D68EE</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xB00D68EE</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928490</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000022B" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000022C" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3930.09858086759" Y="843.424212848843"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000230">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Quest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_C88F0550</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xC88F0550</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928496</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000231" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000232" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3927.09858086759" Y="610.424212848843"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000245">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Rest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_BDBA627B</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xBDBA627B</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928517</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000246" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000247" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="2328.59858086759" Y="870.373156107214"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000254">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Gas</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_63ABDC29</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x63ABDC29</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928532</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000255" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000256" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="4743.04059436084" Y="135.013092756842"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x010000000000025A">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Food</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_92E4C77B</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x92E4C77B</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928538</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000025B" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000025C" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="4746.04059436084" Y="368.013092756842"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x0100000000000269">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Look for work</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_AE761F4B</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xAE761F4B</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928553</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000026A" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000026B" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="4746.14169329779" Y="607.784854778877"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x010000000000026F">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Gas</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_35E8720A</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x35E8720A</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928559</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000270" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000271" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="4750.14169329779" Y="841.784854778877"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002A4">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Rest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_E5B42B8A</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xE5B42B8A</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928612</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002A5" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002A6" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5579.96855812893" Y="893.598844036387"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002AA">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Quest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_F79BB53B</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xF79BB53B</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928618</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002AB" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002AC" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5577.20607682409" Y="378.966192709221"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>3</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002B0">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Food</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_FA685C60</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xFA685C60</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928624</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002B1" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002B2" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5574.20607682409" Y="145.966192709221"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002B6">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Buy Info</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_CF1A544D</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xCF1A544D</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928630</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002B7" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002B8" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5573.70607682409" Y="612.466192709221"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>25</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002CE">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Rest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_E9357D00</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xE9357D00</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928654</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002CF" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002D0" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="6374.39804122218" Y="905.525095107256"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>1</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002D5">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Quest</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_9FC06D47</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x9FC06D47</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928661</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002D8" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002D9" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="6356.23137455551" Y="642.691761773922"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>73</ZIndex>
+    </Dialogue>
+    <Dialogue Id="0x01000000000002DE">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Look for flower {if quest active}</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Dlg_ACF445E6</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xACF445E6</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928670</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002E1" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002E2" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1534.82380081568" Y="-149.222418045281"/>
+      <Size Width="291" Height="200"/>
+      <ZIndex>75</ZIndex>
+    </Dialogue>
+    <Entity Id="0x01000000000002E6">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">barmaid</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ntt_1484DFDB</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x1484DFDB</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928678</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+    </Entity>
+    <Entity Id="0x01000000000002EA">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">pc</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ntt_3C5C676B</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x3C5C676B</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928682</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+    </Entity>
+    <Entity Id="0x01000000000002EE">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">blind man</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>Ntt_1CE0E359</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x1CE0E359</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928686</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+    </Entity>
+    <FeatureDefinition Id="0x0100000000000008">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Basic Character Properties</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>DefaultBasicCharacterFeature</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037927944</Url>
+      <PropertyDefinitions Count="8">
+        <PropertyDefinitionRef IdRef="0x010000000000000A"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000011"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000017"/>
+        <PropertyDefinitionRef IdRef="0x010000000000001D"/>
+        <PropertyDefinitionRef IdRef="0x010000000000002B"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000031"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000037"/>
+        <PropertyDefinitionRef IdRef="0x010000000000003D"/>
+      </PropertyDefinitions>
+    </FeatureDefinition>
+    <FeatureDefinition Id="0x0100000000000043">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Extended Character Properties</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>DefaultExtendedCharacterFeature</TechnicalName>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928003</Url>
+      <PropertyDefinitions Count="6">
+        <PropertyDefinitionRef IdRef="0x0100000000000045"/>
+        <PropertyDefinitionRef IdRef="0x010000000000004B"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000051"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000057"/>
+        <PropertyDefinitionRef IdRef="0x010000000000005D"/>
+        <PropertyDefinitionRef IdRef="0x0100000000000063"/>
+      </PropertyDefinitions>
+    </FeatureDefinition>
+    <FlowFragment Id="0x010000000000012F">
+      <DisplayName Count="1">
+        <LocalizedString Lang=""><![CDATA[Dennis Fox's Saloon]]></LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Saloon? Not sure I'd have called Fox's a Saloon. Four dirt walls holding up a patchwork tin roof would be a truer - if less kind - description. The smell of homebrew'd liquor was strong here - I guessed that was to mask the smell of the locals... 
+
+An old miner sat at the bar, his spice-blinded purple eyes starred ahead, occasionally drinking from his mug. A row of bullets was lined up in front of him and he knocked one down each time he wanted a refill. 
+
+The barmaid was cute - the kind of cute that loosens lips. If there was info to get here, she was the one to get it from.]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_3977800E</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x3977800E</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928239</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000132" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000133" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="263.5" Y="125.5"/>
+      <Size Width="416" Height="409"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000164">
+      <DisplayName Count="1">
+        <LocalizedString Lang=""><![CDATA[Jeb's gas]]></LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[As I pulled up, the station door swung open and a small, sick looking man peaked out. I never did find out who he was expected, but when he laid eyes on me, he looked relieved.
+
+"What do you want, kid?" he croaked out. "Gas or food?"]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_5630DB67</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x5630DB67</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928292</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000167" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000168" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="268.09649254049" Y="628.247878531451"/>
+      <Size Width="405" Height="440"/>
+      <ZIndex>5</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x010000000000017F">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Coyote Point</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Coyote Point... 
+
+You didn't get to see much pretty in those days, 'cept for places like Coyote Point. Vegetation far as the eye could see - green ones and all. Kill you dead if you eat 'em, mind you. 
+
+This place had been a path to down yonder, but the mountain collapse made short work of having that marked off most people's maps.
+
+Still, a nice place to close my eyes for a while and forget about the Fall...]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_8D6D7491</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x8D6D7491</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928319</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000180" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000181" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1095.59649254049" Y="132.946096881579"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x01000000000001B3">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Canyon</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[{if first enter via coyote pass}
+
+Clearly God was on my side - or at least he wasn't on Belt's, 'cause I can't imagine making it through that pass without the good lord's favour.
+
+{else, or in addition to the above}
+
+The canyon wasn't much to see - same as any canyon I reckon. I scanned the place with my good eye. Almost immediately, I happened upon a campsite in the distant, recently used too - maybe a day, maybe less?]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_80B1ED61</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x80B1ED61</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928371</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001B4" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001B5" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1095.19564333671" Y="642.302858253617"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x01000000000001C8">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Reevesville</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Reevesville - one of those places you stay clear of since the Fall. I'm pretty sure there was only one family in that town - one three-hundred-and-something-people large family...
+
+As I pulled into the place, they flooded out of their tents and makeshift homes, fast surrounding my car. They didn't move like you and me - like normal folks. I made sure the door were locked before slightly winding down my window and talking to the first one who didn't seem to be Hyped.]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_7DD33E92</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x7DD33E92</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928392</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001C9" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001CA" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1880.33609956275" Y="133.240504780048"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x01000000000001F0">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Rust</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Even before I found myself chasing Belt into this part of the world, I'd heard of Rust. Hell, not many places like it. 
+
+You ever find yourself wanting to know how the Fall came to be, you take yourself on over to Rust. What you see there will wash tales from your eyes and make things clearer than clear.]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_AA65AED3</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xAA65AED3</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928432</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000001F1" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000001F2" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="2663.71498846928" Y="132.042172041955"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x010000000000020C">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">The Old Jenkins Ranch</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[I had been driving passed abandoned crops long before I saw the run-down farm house. I could tell it'd been something back in its day - extensions bolted on hither and yon, near tripled its original size. 
+
+As I pulled up out front, a warning shot rang out overhead. I looked up to see a girl - a kid mind you - aiming down from one of them 
+
+An old man. Probably - hopefully - a granddaddy, came out. I could tell from his limp he had himself a bio-leg, and that he had long run out of synth for it. 
+
+"We don't want no troubles. You get back in that there auto-mobile and drive on off. We don't want no troubles, ya hear?"]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_4ADD1EB9</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x4ADD1EB9</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928460</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000020D" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000020E" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="2667.65515371119" Y="643.493873075203"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000221">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Doc Connors</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[I'd seen the signs for Doc Connor's place a while before I took the turn off - and it wasn't long before I started reckonin' that was a bad idea...
+
+Soon as I got near the house, I saw one of those hanging cages - gibbets, I think they're called - with the remains of a young kid inside. I say kid, 'cause I couldn't tell the gender...
+
+I was all set to back up the way I came]]></LocalizedString>
+      </Text>
+      <Color>#C00000</Color>
+      <TechnicalName>FFr_05C356E7</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x05C356E7</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928481</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000222" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000223" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3480.01522268579" Y="136.48600055059"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000236">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Mole Rat territory</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Mole Rats - not even sure they're human under all the rags. Belt must have made a lot of promises to get through this place alive - and I had nothing to offer. 
+
+They lived in old oil lands. Well, not quite. They lived under them - place was scattered with holes, it was. You could see the sun shimmering off the oil - the pits that weren't on fire. 
+
+How they lived under there was anyone's guess. None I ever talked to knew how - hell, none I talked to even seen one outside of a fight. 
+
+This wasn't a good place to be. It was only a matter of time before they felt the car's vibrations and came topside for meat... 
+
+I knew what to look for - we had 'rats back home, after all - so when the oil-pits started flaming up I knew what to expect. They came like demons, appearing from the flames, as if from from hell itself. I got out of the car, arms up high - I'd not survive a fight with them in any measure. 
+
+Seeing this, the leader signalled to the others to lower their spears and walked towards me, "vhat bringz uu hereee?"]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_A76E6C52</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xA76E6C52</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928502</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000237" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000238" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="3484.59858086759" Y="620.924212848843"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x010000000000024B">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Oasis</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[It took me some driving, but I eventually found somewhere nice to rest my head. Clear water, sand - even the remains of a palm tree. 
+
+Water looked good enough to drink - not that anyone's foolish enough to drink water these days.]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_BBD43234</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xBBD43234</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928523</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x010000000000024C" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x010000000000024D" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="1880.09858086759" Y="646.873156107214"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000260">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Getsburg</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Getsburg had been a fort back when things were going bad. I'd heard tell that locals made special efforts to get inside back then. Seeing those scorched walls and he bones piled up against them, I'm not so sure they were successful...
+
+But that was a long time ago. When I got there it was just a settlement like any other - a shithole filled strange folk with dark pasts, just tryin' get by, one day at a time...]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_093E52F9</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x093E52F9</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928544</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000261" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000262" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="4300.54059436084" Y="145.513092756842"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000275">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Mine</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[Mine. Stupid name for a settlement, but I guess they didn't expect to make camp here permanently. Can't recall who first found this stream, but way I hear it, they'd been digging solid for seven years, with new prospectors turning up by the week. 
+
+I didn't stay long enough to find the name of the city that had sunken here, but I did gather they were pulling out up to five kilos of plastic bags outta there a day. That's enough to clothe a family or feed three. People used to be so wasteful... 
+
+No wonder these folk weren't moving on.]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_1050686C</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x1050686C</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928565</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000276" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000277" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="4304.6416932978" Y="602.284854778877"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000284">
+      <DisplayName Count="1">
+        <LocalizedString Lang=""><![CDATA[Radler's cathouse]]></LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang=""><![CDATA[I hadn't even shut the car door and I knew the kinda place Radler's was -]]></LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_53C2945E</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x53C2945E</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928580</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000285" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000286" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5131.70607682409" Y="156.466192709221"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x0100000000000297">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Cemetery</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang="">dead folk</LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_DFD8ED7E</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xDFD8ED7E</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928599</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x0100000000000298" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x0100000000000299" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5131.46855812893" Y="670.098844036387"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <FlowFragment Id="0x01000000000002C7">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Ghost Town</LocalizedString>
+      </DisplayName>
+      <Text Count="1">
+        <LocalizedString Lang="">old factory town,</LocalizedString>
+      </Text>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>FFr_79517005</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x79517005</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928647</Url>
+      <Features Count="0"/>
+      <References Count="0"/>
+      <Pins Count="2">
+        <Pin Id="0x01000000000002C8" Index="0" Semantic="Input">
+          <Expression/>
+        </Pin>
+        <Pin Id="0x01000000000002C9" Index="0" Semantic="Output">
+          <Expression/>
+        </Pin>
+      </Pins>
+      <Position X="5925.89804122218" Y="682.025095107256"/>
+      <Size Width="390" Height="403"/>
+      <ZIndex>0</ZIndex>
+    </FlowFragment>
+    <ObjectTemplateDefinition Id="0x010000000000006B">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Supporting characters</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>DefaultSupportingCharacterTemplate</TechnicalName>
+      <ExternalId/>
+      <ShortId>0xC8E23E51</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928043</Url>
+      <FeatureDefinitions Count="1">
+        <FeatureDefinitionRef IdRef="0x0100000000000008"/>
+      </FeatureDefinitions>
+    </ObjectTemplateDefinition>
+    <ObjectTemplateDefinition Id="0x0100000000000095">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Main characters</LocalizedString>
+      </DisplayName>
+      <Color>#C8E2E7</Color>
+      <TechnicalName>DefaultMainCharacterTemplate</TechnicalName>
+      <ExternalId/>
+      <ShortId>0x1A062479</ShortId>
+      <Url>articy://localhost/view/685bf4d9-f041-49e7-b523-c751d2f0b88c/72057594037928085</Url>
+      <FeatureDefinitions Count="2">
+        <FeatureDefinitionRef IdRef="0x0100000000000008"/>
+        <FeatureDefinitionRef IdRef="0x0100000000000043"/>
+      </FeatureDefinitions>
+    </ObjectTemplateDefinition>
+    <NumberPropertyDefinition Id="0x03000000BB84646C">
+      <IsMandatory>0</IsMandatory>
+      <DisplayThousandsSeparator>0</DisplayThousandsSeparator>
+    </NumberPropertyDefinition>
+    <TextPropertyDefinition Id="0x0300000069DB68B1">
+      <IsMandatory>0</IsMandatory>
+      <IsLocalized>0</IsLocalized>
+      <AllowsLinebreaks>0</AllowsLinebreaks>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x03000000BC9B4687">
+      <IsMandatory>0</IsMandatory>
+      <IsLocalized>0</IsLocalized>
+      <AllowsLinebreaks>1</AllowsLinebreaks>
+    </TextPropertyDefinition>
+    <EnumerationPropertyDefinition Id="0x030000000D3CFAD3">
+      <IsMandatory>0</IsMandatory>
+      <IsLocalized>0</IsLocalized>
+    </EnumerationPropertyDefinition>
+    <NumberPropertyDefinition Id="0x010000000000000A" BasedOn="0x03000000BB84646C">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Age</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Age</TechnicalName>
+    </NumberPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000011" BasedOn="0x0300000069DB68B1">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Species</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Species</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000017" BasedOn="0x0300000069DB68B1">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Born in</LocalizedString>
+      </DisplayName>
+      <TechnicalName>BornIn</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <EnumerationPropertyDefinition Id="0x010000000000001D" BasedOn="0x030000000D3CFAD3">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Sex</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Sex</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+      <Values Count="3">
+        <EnumValue>
+          <Value>0</Value>
+          <TechnicalName>Male</TechnicalName>
+          <DisplayName Count="1">
+            <LocalizedString Lang="">Male</LocalizedString>
+          </DisplayName>
+        </EnumValue>
+        <EnumValue>
+          <Value>1</Value>
+          <TechnicalName>Female</TechnicalName>
+          <DisplayName Count="1">
+            <LocalizedString Lang="">Female</LocalizedString>
+          </DisplayName>
+        </EnumValue>
+        <EnumValue>
+          <Value>2</Value>
+          <TechnicalName>Unknown</TechnicalName>
+          <DisplayName Count="1">
+            <LocalizedString Lang="">Unknown</LocalizedString>
+          </DisplayName>
+        </EnumValue>
+      </Values>
+    </EnumerationPropertyDefinition>
+    <TextPropertyDefinition Id="0x010000000000002B" BasedOn="0x0300000069DB68B1">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Profession</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Occupation</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000031" BasedOn="0x0300000069DB68B1">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Voice</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Accent</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000037" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Personality</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Personality</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x010000000000003D" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Appearance</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Appearance</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000045" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Goals</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Motivation</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x010000000000004B" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Inner Conflict</LocalizedString>
+      </DisplayName>
+      <TechnicalName>InnerConflict</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000051" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Skills</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Skills</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000057" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Weaknesses</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Fears</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x010000000000005D" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Quirks / Habits</LocalizedString>
+      </DisplayName>
+      <TechnicalName>Habits</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+    <TextPropertyDefinition Id="0x0100000000000063" BasedOn="0x03000000BC9B4687">
+      <DisplayName Count="1">
+        <LocalizedString Lang="">Further Details</LocalizedString>
+      </DisplayName>
+      <TechnicalName>FurtherDetails</TechnicalName>
+      <IsLocalized>1</IsLocalized>
+    </TextPropertyDefinition>
+  </Content>
+  <Hierarchy>
+    <Node IdRef="0x0100000000000001" Type="Project">
+      <Node IdRef="0x0300000043CE43F7" Type="Flow">
+        <Node IdRef="0x010000000000012F" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000149" Type="Dialogue"/>
+        <Node IdRef="0x010000000000014F" Type="Connection"/>
+        <Node IdRef="0x0100000000000157" Type="Dialogue"/>
+        <Node IdRef="0x010000000000015D" Type="Connection"/>
+        <Node IdRef="0x0100000000000164" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000171" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000177" Type="Connection"/>
+        <Node IdRef="0x0100000000000178" Type="Dialogue"/>
+        <Node IdRef="0x010000000000017E" Type="Connection"/>
+        <Node IdRef="0x010000000000017F" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000186" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000199" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001A5" Type="Connection"/>
+        <Node IdRef="0x01000000000001A6" Type="Connection"/>
+        <Node IdRef="0x01000000000001B3" Type="FlowFragment"/>
+        <Node IdRef="0x01000000000001BA" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001C0" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001C6" Type="Connection"/>
+        <Node IdRef="0x01000000000001C7" Type="Connection"/>
+        <Node IdRef="0x01000000000001C8" Type="FlowFragment"/>
+        <Node IdRef="0x01000000000001CF" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001D5" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001DB" Type="Connection"/>
+        <Node IdRef="0x01000000000001DC" Type="Connection"/>
+        <Node IdRef="0x01000000000001DD" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001E3" Type="Connection"/>
+        <Node IdRef="0x01000000000001EA" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001F0" Type="FlowFragment"/>
+        <Node IdRef="0x01000000000001F7" Type="Dialogue"/>
+        <Node IdRef="0x01000000000001FD" Type="Connection"/>
+        <Node IdRef="0x01000000000001FE" Type="Connection"/>
+        <Node IdRef="0x0100000000000200" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000206" Type="Dialogue"/>
+        <Node IdRef="0x010000000000020C" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000213" Type="Connection"/>
+        <Node IdRef="0x0100000000000214" Type="Connection"/>
+        <Node IdRef="0x0100000000000215" Type="Dialogue"/>
+        <Node IdRef="0x010000000000021B" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000221" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000228" Type="Connection"/>
+        <Node IdRef="0x0100000000000229" Type="Connection"/>
+        <Node IdRef="0x010000000000022A" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000230" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000236" Type="FlowFragment"/>
+        <Node IdRef="0x010000000000023D" Type="Connection"/>
+        <Node IdRef="0x010000000000023E" Type="Connection"/>
+        <Node IdRef="0x0100000000000245" Type="Dialogue"/>
+        <Node IdRef="0x010000000000024B" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000253" Type="Connection"/>
+        <Node IdRef="0x0100000000000254" Type="Dialogue"/>
+        <Node IdRef="0x010000000000025A" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000260" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000267" Type="Connection"/>
+        <Node IdRef="0x0100000000000268" Type="Connection"/>
+        <Node IdRef="0x0100000000000269" Type="Dialogue"/>
+        <Node IdRef="0x010000000000026F" Type="Dialogue"/>
+        <Node IdRef="0x0100000000000275" Type="FlowFragment"/>
+        <Node IdRef="0x010000000000027C" Type="Connection"/>
+        <Node IdRef="0x010000000000027D" Type="Connection"/>
+        <Node IdRef="0x0100000000000284" Type="FlowFragment"/>
+        <Node IdRef="0x0100000000000297" Type="FlowFragment"/>
+        <Node IdRef="0x01000000000002A4" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002AA" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002B0" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002B6" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002BC" Type="Connection"/>
+        <Node IdRef="0x01000000000002BD" Type="Connection"/>
+        <Node IdRef="0x01000000000002BE" Type="Connection"/>
+        <Node IdRef="0x01000000000002BF" Type="Connection"/>
+        <Node IdRef="0x01000000000002C7" Type="FlowFragment"/>
+        <Node IdRef="0x01000000000002CE" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002D4" Type="Connection"/>
+        <Node IdRef="0x01000000000002D5" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002DB" Type="Connection"/>
+        <Node IdRef="0x01000000000002DE" Type="Dialogue"/>
+        <Node IdRef="0x01000000000002E4" Type="Connection"/>
+      </Node>
+      <Node IdRef="0x030000003140D3AC" Type="Locations"/>
+      <Node IdRef="0x03000000AC61A2B3" Type="Entities">
+        <Node IdRef="0x01000000000002E6" Type="Entity"/>
+        <Node IdRef="0x01000000000002EA" Type="Entity"/>
+        <Node IdRef="0x01000000000002EE" Type="Entity"/>
+      </Node>
+      <Node IdRef="0x030000004C3DAF54" Type="Assets">
+        <Node IdRef="0x01000000000000FE" Type="AssetsUserFolder"/>
+        <Node IdRef="0x0100000000000100" Type="AssetsUserFolder"/>
+        <Node IdRef="0x0100000000000102" Type="AssetsUserFolder"/>
+        <Node IdRef="0x0100000000000104" Type="AssetsUserFolder"/>
+        <Node IdRef="0x0100000000000106" Type="AssetsUserFolder"/>
+      </Node>
+      <Node IdRef="0x0300000029CF057C" Type="ObjectCustomization">
+        <Node IdRef="0x03000000D2404DC0" Type="Features">
+          <Node IdRef="0x0100000000000008" Type="FeatureDefinition"/>
+          <Node IdRef="0x0100000000000043" Type="FeatureDefinition"/>
+        </Node>
+        <Node IdRef="0x030000009AF68DCD" Type="ObjectTemplates">
+          <Node IdRef="0x0300000078B45A71" Type="TypedObjectTemplates">
+            <Node IdRef="0x010000000000006B" Type="ObjectTemplateDefinition"/>
+            <Node IdRef="0x0100000000000095" Type="ObjectTemplateDefinition"/>
+          </Node>
+          <Node IdRef="0x030000006D1BC275" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000030B5ACF" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x030000008DD5C0F2" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x0300000092CF598E" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x0300000030635118" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000A715C057" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x030000005314E813" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x030000004264B29C" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000FB371D5C" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x0300000013DF3A1A" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000ADA9FA17" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000ECC00F83" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000F514339C" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x0300000096812FC1" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000CC5A07F0" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000DCC67F9D" Type="TypedObjectTemplates"/>
+          <Node IdRef="0x03000000BA022E2F" Type="TypedObjectTemplates"/>
+        </Node>
+        <Node IdRef="0x030000002C0951AE" Type="PropertyTemplates">
+          <Node IdRef="0x030000006E2C178B" Type="TypedPropertyTemplates"/>
+          <Node IdRef="0x03000000BB12F1B8" Type="TypedPropertyTemplates"/>
+          <Node IdRef="0x030000006F82D78E" Type="TypedPropertyTemplates"/>
+          <Node IdRef="0x0300000037DCE3F0" Type="TypedPropertyTemplates"/>
+          <Node IdRef="0x030000003630A240" Type="TypedPropertyTemplates"/>
+          <Node IdRef="0x03000000D745C449" Type="TypedPropertyTemplates"/>
+        </Node>
+      </Node>
+      <Node IdRef="0x030000002B4F4C54" Type="GlobalVariables"/>
+      <Node IdRef="0x03000000103AA2F0" Type="Documents"/>
+      <Node IdRef="0x03000000236F7272" Type="Journeys"/>
+      <Node IdRef="0x03000000F917511B" Type="ProjectSettings"/>
+    </Node>
+  </Hierarchy>
+</Export>

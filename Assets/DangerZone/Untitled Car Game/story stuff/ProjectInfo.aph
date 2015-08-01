@@ -1,0 +1,19 @@
+<ProjectInfo Version="1">
+  <Signature>A44210186BEA1BC44468D2F446E807441BCE1B1A05A77F778F6748CEE6B45755</Signature>
+  <Content>
+    <Project Guid="685bf4d9-f041-49e7-b523-c751d2f0b88c">
+      <DisplayName Value="car game dialogue"/>
+      <DetailName Value=""/>
+      <MainProjectGuid Value="0db957b8-a11c-425f-86e0-72b5a38a6988"/>
+      <IconType Value="0"/>
+      <IdProjectIcon Value="00000000-0000-0000-0000-000000000000"/>
+      <ScmProviderGuid Value="0745c2ee-abe3-451b-934e-7f597f56c0d7"/>
+      <ScmConfiguration Value=""/>
+      <CreationTimeStamp Value="635699772720701502"/>
+      <PartitionHash Value="6056B56959838F8577E5829CCF3DDAD92917345FFB92F414F6280F087BB9A840"/>
+      <SaveFileVersion Value="53"/>
+      <ProjectType Value="0"/>
+      <IsOnlineProject Value="False"/>
+    </Project>
+  </Content>
+</ProjectInfo>
