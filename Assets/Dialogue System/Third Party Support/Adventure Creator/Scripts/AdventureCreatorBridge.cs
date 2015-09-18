@@ -53,21 +53,29 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		public bool saveToGlobalVariableOnConversationEnd = false;
 
 		/// <summary>
+		/// Set <c>true</c> to save the Lua environment to the AC global variable 
+		/// when changing levels.
+		/// </summary>
+		public bool saveToGlobalVariableOnLevelChange = false;
+
+		/// <summary>
 		/// Set this <c>true</c> to skip the next sync to Lua. The Conversation action sets
 		/// this <c>true</c> because it manually syncs to Lua before the conversation starts.
 		/// </summary>
 		/// <value><c>true</c> to skip sync to lua; otherwise, <c>false</c>.</value>
 		public bool skipSyncToLua { get; set; }
 
+		public bool useAdventureCreatorLanguage = true;
+
 		private bool isPlayerInvolved = false;
 		private GameState previousGameState = GameState.Normal;
-		private CursorDisplay previousCursorDisplay = CursorDisplay.Always;
 
 		private const float MovementThreshold = 0.1f; // Camera is "stopped" if it moves less than 0.1 units in 0.5 seconds.
 
 		public virtual void Start() {
 			PersistentDataManager.includeSimStatus = includeSimStatus;
 			skipSyncToLua = false;
+			if (saveToGlobalVariableOnLevelChange) SetSaveOnLevelChange();
 		}
 
 		/// <summary>
@@ -92,43 +100,14 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		}
 
 		private void CheckIfPlayerIsInvolved(Transform actor) {
-			Actor dbActor = DialogueManager.MasterDatabase.GetActor(OverrideActorName.GetActorName(actor));
-			isPlayerInvolved = (dbActor != null) && dbActor.IsPlayer;
-		}
-
-		public static GameObject GetGameEngine() { 
-			return GameObject.FindWithTag(Tags.gameEngine); 
-		}
-
-		public static GameObject GetPersistentEngine() {
-			return GameObject.FindWithTag(Tags.persistentEngine);
-		}
-
-		public static StateHandler GetStateHandler() { 
-			var persistentEngine = GetPersistentEngine();
-			return (persistentEngine != null) ? persistentEngine.GetComponent<StateHandler>() : null;
-		}
-
-		public static InventoryManager GetInventoryManager() {
-			return AdvGame.GetReferences().inventoryManager;
-		}
-
-		public static RuntimeInventory GetRuntimeInventory() {
-			var persistentEngine = GetPersistentEngine();
-			return (persistentEngine != null) ? persistentEngine.GetComponent<RuntimeInventory>() : null;
-		}
-
-		public static LocalVariables GetLocalVariables() { 
-			var gameEngine = GetGameEngine();
-			return (gameEngine != null) ? gameEngine.GetComponent<LocalVariables>() : null;
-		}
-
-		public static VariablesManager GetVariablesManager() {
-			return AdvGame.GetReferences().variablesManager;
-		}
-
-		public static CursorManager GetCursorManager() {
-			return AdvGame.GetReferences().cursorManager;
+			if (actor == null) {
+				isPlayerInvolved = false;
+			} else if (actor.GetComponentInChildren<Player>() != null) {
+				isPlayerInvolved = true;
+			} else {
+				Actor dbActor = DialogueManager.MasterDatabase.GetActor(OverrideActorName.GetActorName(actor));
+				isPlayerInvolved = (dbActor != null) && dbActor.IsPlayer;
+			}
 		}
 
 		/// <summary>
@@ -175,7 +154,7 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 				RestorePreviousGameState();
 				break;
 			}
-			switch (useDialogState) {
+			switch (takeCameraControl) {
 			case UseDialogState.Never:
 				break;
 			case UseDialogState.IfPlayerInvolved:
@@ -191,31 +170,27 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		/// Sets AC's GameState to DialogOptions.
 		/// </summary>
 		public void SetGameStateToCutscene() {
-			var stateHandler = GetStateHandler();
-			if (stateHandler == null) return;
-			previousGameState = (stateHandler.gameState == GameState.DialogOptions) ? GameState.Normal : stateHandler.gameState;
-			stateHandler.gameState = GameState.DialogOptions;
+			if (KickStarter.stateHandler == null) return;
+			previousGameState = (KickStarter.stateHandler.gameState == GameState.DialogOptions) ? GameState.Normal : KickStarter.stateHandler.gameState;
+			KickStarter.stateHandler.gameState = GameState.DialogOptions;
 			if (!DialogueManager.IsConversationActive) SetConversationCursor();
 
 		}
 
 		public void RestorePreviousGameState() {
-			var stateHandler = GetStateHandler();
-			if (stateHandler == null) return;
-			stateHandler.gameState = (previousGameState == GameState.DialogOptions) ? GameState.Normal : previousGameState;
+			if (KickStarter.stateHandler == null) return;
+			KickStarter.stateHandler.gameState = (previousGameState == GameState.DialogOptions) ? GameState.Normal : previousGameState;
 			RestorePreviousCursor();
 		}
 
 		public void DisableACCameraControl() {
-			var stateHandler = GetStateHandler();
-			if (stateHandler == null) return;
-			stateHandler.cameraIsOff = true;
+			if (KickStarter.stateHandler == null) return;
+			KickStarter.stateHandler.SetCameraSystem(false);
 		}
 
 		public void EnableACCameraControl() {
-			var stateHandler = GetStateHandler();
-			if (stateHandler == null) return;
-			stateHandler.cameraIsOff = false;
+			if (KickStarter.stateHandler == null) return;
+			KickStarter.stateHandler.SetCameraSystem(true);
 		}
 
 		public void IdleACCameraControl() {
@@ -239,20 +214,33 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		/// Sets the conversation cursor.
 		/// </summary>
 		public void SetConversationCursor() {
-			var cursorManager = GetCursorManager();
-			if (cursorManager == null) return;
-			previousCursorDisplay = cursorManager.cursorDisplay;
-			cursorManager.cursorDisplay = CursorDisplay.Always;
+			if (!isEnforcingCursor) StartCoroutine(EnforceCursor());
 		}
-
+		
 		/// <summary>
 		/// Restores the previous cursor.
 		/// </summary>
 		public void RestorePreviousCursor() {
-			var cursorManager = GetCursorManager();
-			if (cursorManager == null) return;
-			cursorManager.cursorDisplay = previousCursorDisplay;
+			stopEnforcingCursor = true;
 		}
+		
+		private bool isEnforcingCursor = false;
+		private bool stopEnforcingCursor = false;
+
+		private IEnumerator EnforceCursor() {
+			if (isEnforcingCursor || KickStarter.cursorManager == null) yield break;
+			if (!(isPlayerInvolved || useDialogState == UseDialogState.Always)) yield break;
+			isEnforcingCursor = true;
+			stopEnforcingCursor = false;
+			var previousCursorDisplay = KickStarter.cursorManager.cursorDisplay;
+			while (!stopEnforcingCursor) {
+				KickStarter.cursorManager.cursorDisplay = CursorDisplay.Always;
+				KickStarter.playerInput.cursorIsLocked = false;
+				yield return null;
+			}
+			KickStarter.cursorManager.cursorDisplay = previousCursorDisplay;
+			isEnforcingCursor = false;
+		}	
 
 		/// <summary>
 		/// Syncs the AC data to Lua.
@@ -270,30 +258,9 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 			SyncLuaToInventory();
 		}
 
-		/// <summary>
-		/// Syncs global and local variables to Lua.
-		/// </summary>
-		public void SyncVariablesToLua() {
-			SyncVarListToLua(GlobalVariables.GetAllVars());
-			var localVariables = GetLocalVariables();
-			if (localVariables != null) SyncVarListToLua(localVariables.localVars);
-		}
-
-		/// <summary>
-		/// Syncs Lua back to AC's global and local variables.
-		/// </summary>
-		public void SyncLuaToVariables() {
-			SyncLuaToVarList(GlobalVariables.GetAllVars());
-			var localVariables = GetLocalVariables();
-			if (localVariables != null) SyncLuaToVarList(localVariables.localVars);
-		}
-
-		/// <summary>
-		/// Syncs a variable list to Lua (used for global and local variables).
-		/// </summary>
-		/// <param name="varList">Variable list.</param>
-		protected void SyncVarListToLua(List<GVar> varList) {
-			foreach (var variable in varList) {
+		public void SyncVariablesToLua()
+		{
+			foreach (var variable in AC.KickStarter.runtimeVariables.globalVars) {
 				if (!string.Equals(variable.label, DialogueSystemGlobalVariableName)) {
 					string luaName = DialogueLua.StringToTableIndex(variable.label);
 					switch (variable.type) {
@@ -302,23 +269,26 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 						DialogueLua.SetVariable(luaName, boolValue);
 						break;
 					case VariableType.Integer:
+					case VariableType.PopUp:
 						DialogueLua.SetVariable(luaName, variable.val);
 						break;
-					default:
+					case VariableType.Float:
+						DialogueLua.SetVariable(luaName, variable.floatVal);
+						break;
 					case VariableType.String:
 						DialogueLua.SetVariable(luaName, variable.textVal);
+						break;
+					default:
+						if (DialogueDebug.LogWarnings) Debug.LogWarning("Dialogue System: AdventureCreatorBridge doesn't know how to sync variable type " + variable.type, this);
 						break;
 					}
 				}
 			}
 		}
 
-		/// <summary>
-		/// Syncs Lua to a variable list (used for global and local variables).
-		/// </summary>
-		/// <param name="varList">Variable list.</param>
-		protected void SyncLuaToVarList(List<GVar> varList) {
-			foreach (var variable in varList) {
+		public void SyncLuaToVariables()
+		{
+			foreach (var variable in KickStarter.runtimeVariables.globalVars) {
 				string luaName = DialogueLua.StringToTableIndex(variable.label);
 				var luaValue = DialogueLua.GetVariable(luaName);
 				switch (variable.type) {
@@ -326,11 +296,17 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 					variable.val = (luaValue.AsBool == true) ? 1 : 0;
 					break;
 				case VariableType.Integer:
+				case VariableType.PopUp:
 					variable.val = luaValue.AsInt;
 					break;
-				default:
+				case VariableType.Float:
+					variable.floatVal = luaValue.AsFloat;
+					break;
 				case VariableType.String:
 					variable.textVal = luaValue.AsString;
+					break;
+				default:
+					if (DialogueDebug.LogWarnings) Debug.LogWarning("Dialogue System: AdventureCreatorBridge doesn't know how to sync variable type " + variable.type, this);
 					break;
 				}
 			}
@@ -340,12 +316,13 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		/// Syncs AC's inventory to Lua.
 		/// </summary>
 		public void SyncInventoryToLua() {
-			var inventoryManager = GetInventoryManager();
-			var runtimeInventory = GetRuntimeInventory();
+			var inventoryManager = KickStarter.inventoryManager;
+			var runtimeInventory = KickStarter.runtimeInventory;
 			if (inventoryManager == null || runtimeInventory == null) return;
 			foreach (InvItem item in inventoryManager.items) {
 				string luaName = DialogueLua.StringToTableIndex(item.label);
-				InvItem runtimeItem = runtimeInventory.localItems.Find(x => x.id == item.id);
+				//---Was: InvItem runtimeItem = runtimeInventory.localItems.Find(x => x.id == item.id);
+				InvItem runtimeItem = runtimeInventory.GetItem(item.id); // Credit: jackallplay. Thanks for the fix!
 				int runtimeCount = (runtimeItem != null) ? runtimeItem.count : 0;
 				Lua.Run(string.Format("Item[\"{0}\"] = {{ Name=\"{1}\", Description=\"\", Is_Item=true, AC_ID={2}, Count={3} }}", 
 				                      luaName, item.label, item.id, runtimeCount), DialogueDebug.LogInfo);
@@ -399,9 +376,10 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		/// <param name="itemID">Item ID.</param>
 		/// <param name="newCount">New count.</param>
 		protected void UpdateAdventureCreatorItem(string itemName, int itemID, int newCount) {
-			var runtimeInventory = GetRuntimeInventory();
+			var runtimeInventory = KickStarter.runtimeInventory;
 			if (runtimeInventory == null) return;
-			InvItem item = runtimeInventory.localItems.Find(x => x.id == itemID);
+			//---Was: InvItem item = runtimeInventory.localItems.Find(x => x.id == itemID);
+			InvItem item = runtimeInventory.GetItem(itemID); // Credit: jackallplay. Thanks for the fix!
 			if (item == null) {
 				if (newCount > 0) {
 					runtimeInventory.Add(itemID, newCount, false, KickStarter.player.ID);
@@ -415,6 +393,15 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 				int amountToRemove = item.count - newCount;
 				runtimeInventory.Remove(item.id, amountToRemove, true, KickStarter.player.ID);
 				if (DialogueDebug.LogInfo) Debug.Log(string.Format("{0}: Removed {1} {2} from inventory", DialogueDebug.Prefix, amountToRemove, itemName));
+			}
+		}
+
+		private void SetSaveOnLevelChange() {
+			var saver = (KickStarter.levelStorage == null) ? null : KickStarter.levelStorage.GetComponent<DialogueSystemSaver>();
+			if (saver == null) {
+				if (DialogueDebug.LogWarnings) Debug.LogWarning(string.Format("{0}: Can't save on level changes; PersistentEngine doesn't have a DialogueSystemSaver component", DialogueDebug.Prefix));
+			} else {
+				saver.saveWhenChangingLevels = true;
 			}
 		}
 
@@ -439,7 +426,7 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 		/// </summary>
 		/// <returns>The DialogueSystemEnvironment variable ID.</returns>
 		private static int GetDialogueSystemVarID() {
-			var variablesManager = GetVariablesManager();
+			var variablesManager = KickStarter.variablesManager;
 			if (variablesManager == null) return 0;
 			List<GVar> globalVarList = GlobalVariables.GetAllVars();
 			foreach (GVar var in globalVarList) {
@@ -466,6 +453,26 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 			}
 			idArray.Sort();
 			return idArray.ToArray();
+		}
+
+		/// <summary>
+		/// If the bridge is set to use AC's language, sets the Dialogue System's language to AC's.
+		/// </summary>
+		public static void UpdateLocalization() {
+			var bridge = FindObjectOfType<AdventureCreatorBridge>();
+			if (bridge == null || !bridge.useAdventureCreatorLanguage) return;
+			bridge.StartCoroutine(bridge.DelayedUpdateLanguage());
+		}
+
+		/// <summary>
+		/// Waits one frame, then updates the Dialogue System's language. We need to wait one
+		/// frame because AC calls the save/load options hooks before setting the language.
+		/// </summary>
+		/// <returns>The update language.</returns>
+		private IEnumerator DelayedUpdateLanguage() {
+			yield return null;
+			var language = (AC.Options.GetLanguage() > 0) ? AC.Options.GetLanguageName() : string.Empty;
+			DialogueManager.SetLanguage(language);
 		}
 
 	}

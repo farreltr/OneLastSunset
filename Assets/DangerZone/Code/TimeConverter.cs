@@ -64,7 +64,7 @@ public class TimeConverter : MonoBehaviour
 		}
 		string timeString = prefix + hour + ":" + minStr + postfix;
 		
-		formattedTime.SetValue (timeString);
+		formattedTime.SetStringValue (timeString);
 	}
 
 	void UpdateHealth ()

@@ -34,7 +34,7 @@ namespace AC
 			GVar timeVar = AC.GlobalVariables.GetVariable (16);
 			GVar gasVar = AC.GlobalVariables.GetVariable (7);
 			string journeyString = loc.GetValue () + "_" + location.name;
-			CheckWinForJourney (timeVar.floatVal, time, journeyString);
+			CheckWinForJourney (timeVar.floatVal, time, journeyString, location.name);
 			timeVar.floatVal = timeVar.floatVal - time;
 			gasVar.val = gasVar.val - gas;
 			Vector3 updatedPosition = location.transform.position;
@@ -43,15 +43,15 @@ namespace AC
 			return 0f;
 		}
 
-		void CheckWinForJourney (float current, float timeDecrease, string journeyString)
+		void CheckWinForJourney (float current, float timeDecrease, string journeyString, string locationName)
 		{
 			Antagonist belt = GameObject.FindObjectOfType<Antagonist> ();
 			int currInt = 70 - Mathf.RoundToInt (current);
 			int tInt = Mathf.RoundToInt (timeDecrease);
 			for (int i = currInt; i < currInt + tInt; i++) {
-				if (belt.GetPosition (i) == journeyString) {
+				if (belt.GetPosition (i) == journeyString || belt.GetPosition (i) == locationName) {
 					GVar bullets = AC.GlobalVariables.GetVariable (5);
-					gameOver = 1;
+					AC.GlobalVariables.GetVariable (35).val = 1;
 					if (bullets.val <= 0) {
 						Application.LoadLevel ("bullets");
 					} else {

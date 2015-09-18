@@ -5,9 +5,11 @@ using System.Collections.Generic;
 public class Antagonist : MonoBehaviour
 {
 	private string[] locations = new string[70];
+	private string randomLocation;
 
 	void Start ()
 	{
+		Random.seed = System.DateTime.Now.Millisecond;
 		DontDestroyOnLoad (this);
 		locations [0] = "canyon";
 		locations [1] = "canyon";
@@ -71,32 +73,39 @@ public class Antagonist : MonoBehaviour
 		locations [54] = "mine_rust";
 		locations [55] = "rust";
 		locations [56] = "rust";
-		locations [57] = "rust_cemetary";
-		locations [58] = "rust_cemetary";
-		locations [59] = "rust_cemetary";
+		locations [57] = "rust_cemetery";
+		locations [58] = "rust_cemetery";
+		locations [59] = "rust_cemetery";
 
-		locations [60] = "rust_cemetary";
-		locations [61] = "cemetary";
-		locations [62] = "cemetary_ranch";
-		locations [63] = "cemetary_ranch";
-		locations [64] = "cemetary_ranch";
+		locations [60] = "rust_cemetery";
+		locations [61] = "cemetery";
+		locations [62] = "cemetery_ranch";
+		locations [63] = "cemetery_ranch";
+		locations [64] = "cemetery_ranch";
 		locations [65] = "ranch";
 		locations [66] = "ranch_ghost";
 		locations [67] = "ranch_ghost";
 		locations [68] = "ranch_ghost";
 		locations [69] = "ghost";
 
+		char[] splitChar = {'_'};
+		string[] randomLocationArray = locations [Random.Range (0, locations.Length)].Split (splitChar);
+		randomLocation = randomLocationArray [Random.Range (0, randomLocationArray.Length)];
+
 	
 	}
 
-	public string GetPosition (float time)
+	/*public string GetPosition (float time)
 	{
 		int idx = Mathf.RoundToInt (time);
 		if (idx < 70 && idx > -1) {
 			return locations [idx];
 		}
 		return "";
+	} */
 
-
+	public string GetPosition (float time)
+	{
+		return randomLocation;
 	}
 }

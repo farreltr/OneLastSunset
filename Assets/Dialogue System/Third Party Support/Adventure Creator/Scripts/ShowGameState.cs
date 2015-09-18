@@ -12,15 +12,8 @@ namespace PixelCrushers.DialogueSystem.AdventureCreator {
 	[AddComponentMenu("Dialogue System/Third Party/Adventure Creator/Show Game State")]
 	public class ShowGameState : MonoBehaviour {
 
-		private StateHandler stateHandler = null;
-
-		void Start() {
-			GameObject persistentEngine = GameObject.FindWithTag(Tags.persistentEngine);
-			stateHandler = (persistentEngine != null) ? persistentEngine.GetComponent<StateHandler>() : null;
-		}
-
 		void OnGUI() {
-			GUILayout.Label(string.Format("GameState: {0}", (stateHandler != null) ? stateHandler.gameState.ToString() : "NULL"));
+			GUILayout.Label(string.Format("GameState: {0}", KickStarter.stateHandler.gameState.ToString()));
 
 			//---
 			//--- If you're having trouble with cursors, edit AC's PlayerCursor.cs and

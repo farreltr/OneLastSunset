@@ -1,5 +1,11 @@
 /*
-Make sure to read _README_FIRST_IMPORTANT.txt in the folder above this one.
+Make sure to read _README_FIRST_IMPORTANT.txt in the folder above this one
+before trying to play the example scene.
+
+When you import Adventure Creator, the default manager settings are set to the
+Demo scene's managers. If you need to set AC's manager settings back to the 
+Demo scene, inspect Assets/AdventureCreator/Demo/ManagerPackage. In the Inspector 
+view, click on "Assign managers". Then you can play the example scene in this folder.
 
 This folder contains a modified version of Adventure Creator's Demo scene that
 replaces the AC conversation "IntroConv" with a Dialogue System equivalent.
