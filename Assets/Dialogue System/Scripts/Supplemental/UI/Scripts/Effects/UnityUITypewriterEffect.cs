@@ -4,14 +4,16 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace PixelCrushers.DialogueSystem {
+namespace PixelCrushers.DialogueSystem
+{
 
 	/// <summary>
 	/// This is a basic typewriter effect for Unity UI. It handles bold,
 	/// italic, and color rich text tags.
 	/// </summary>
 	[AddComponentMenu("Dialogue System/UI/Unity UI/Effects/Unity UI Typewriter Effet")]
-	public class UnityUITypewriterEffect : MonoBehaviour {
+	public class UnityUITypewriterEffect : MonoBehaviour
+	{
 
 		/// <summary>
 		/// How fast to "type."
@@ -32,38 +34,44 @@ namespace PixelCrushers.DialogueSystem {
 		private UnityEngine.UI.Text control;
 		private AudioSource audioSource;
 		private string original = string.Empty;
-		private List<string> closureTags = new List<string>();
+		private List<string> closureTags = new List<string> ();
 
-		public void Awake() {
-			control = GetComponent<UnityEngine.UI.Text>();
-			audioSource = GetComponent<AudioSource>();
+		public void Awake ()
+		{
+			control = GetComponent<UnityEngine.UI.Text> ();
+			audioSource = GetComponent<AudioSource> ();
 		}
 		
-		public void OnEnable() {
-			if (control != null) StartCoroutine(Play());
+		public void OnEnable ()
+		{
+			if (control != null)
+				StartCoroutine (Play ());
 		}
 		
-		public void OnDisable() {
-			Stop();
+		public void OnDisable ()
+		{
+			Stop ();
 		}
 		
 		/// <summary>
 		/// Plays the typewriter effect.
 		/// </summary>
-		public IEnumerator Play() {
+		public IEnumerator Play ()
+		{
 			IsPlaying = true;
-			closureTags.Clear();
+			closureTags.Clear ();
 			original = control.text;
 			int originalLength = original.Length;
 			int length = 0;
 			float delay = 1 / charactersPerSecond;
 			while (length < originalLength) {
 				if (!DialogueTime.IsPaused) {
-					if (audioClip != null && audioSource != null) audioSource.PlayOneShot(audioClip);
-					length = AdvanceOneCharacter(length);
-					control.text = original.Substring(0, length) + GetRichTextClosures();
+					if (audioClip != null && audioSource != null)
+						audioSource.PlayOneShot (audioClip);
+					length = AdvanceOneCharacter (length);
+					control.text = original.Substring (0, length) + GetRichTextClosures ();
 				}
-				yield return new WaitForSeconds(delay);
+				yield return new WaitForSeconds (delay);
 			}
 			control.text = original;
 			IsPlaying = false;
@@ -80,47 +88,53 @@ namespace PixelCrushers.DialogueSystem {
 		/// Advances the label one character or rich text code.
 		/// </summary>
 		/// <param name="control">GUI Label to advance.</param>
-		private int AdvanceOneCharacter(int length) {
-			if (original[length] == '<') {
-				if (string.Compare(original, length, RichTextBoldOpen, 0, RichTextBoldOpen.Length) == 0) {
-					closureTags.Insert(0, RichTextBoldClose);
+		private int AdvanceOneCharacter (int length)
+		{
+			if (original [length] == '<') {
+				if (string.Compare (original, length, RichTextBoldOpen, 0, RichTextBoldOpen.Length) == 0) {
+					closureTags.Insert (0, RichTextBoldClose);
 					return length + RichTextBoldOpen.Length;
-				} else if (string.Compare(original, length, RichTextBoldClose, 0, RichTextBoldClose.Length) == 0) {
-					closureTags.RemoveAt(0);
+				} else if (string.Compare (original, length, RichTextBoldClose, 0, RichTextBoldClose.Length) == 0) {
+					closureTags.RemoveAt (0);
 					return length + RichTextBoldClose.Length;
-				} else if (string.Compare(original, length, RichTextItalicOpen, 0, RichTextItalicOpen.Length) == 0) {
-					closureTags.Insert(0, RichTextItalicClose);
+				} else if (string.Compare (original, length, RichTextItalicOpen, 0, RichTextItalicOpen.Length) == 0) {
+					closureTags.Insert (0, RichTextItalicClose);
 					return length + RichTextItalicOpen.Length;
-				} else if (string.Compare(original, length, RichTextItalicClose, 0, RichTextItalicClose.Length) == 0) {
-					closureTags.RemoveAt(0);
+				} else if (string.Compare (original, length, RichTextItalicClose, 0, RichTextItalicClose.Length) == 0) {
+					closureTags.RemoveAt (0);
 					return length + RichTextItalicClose.Length;
-				}if (string.Compare(original, length, RichTextColorOpenPrefix, 0, RichTextColorOpenPrefix.Length) == 0) {
-					closureTags.Insert(0, RichTextColorClose);
+				}
+				if (string.Compare (original, length, RichTextColorOpenPrefix, 0, RichTextColorOpenPrefix.Length) == 0) {
+					closureTags.Insert (0, RichTextColorClose);
 					return length + RichTextColorOpenPrefix.Length + 10; // <color=#rrggbbaa>
-				} else if (string.Compare(original, length, RichTextColorClose, 0, RichTextColorClose.Length) == 0) {
-					closureTags.RemoveAt(0);
+				} else if (string.Compare (original, length, RichTextColorClose, 0, RichTextColorClose.Length) == 0) {
+					closureTags.RemoveAt (0);
 					return length + RichTextColorClose.Length;
 				}
 			}
 			return length + 1;
 		}
 
-		private string GetRichTextClosures() {
-			if (closureTags.Count == 0) return string.Empty;
-			StringBuilder sb = new StringBuilder();
+		private string GetRichTextClosures ()
+		{
+			if (closureTags.Count == 0)
+				return string.Empty;
+			StringBuilder sb = new StringBuilder ();
 			for (int i = 0; i < closureTags.Count; i++) {
-				sb.Append(closureTags[i]);
+				sb.Append (closureTags [i]);
 			}
-			return sb.ToString();
+			return sb.ToString ();
 		}
 		
 		/// <summary>
 		/// Stops the effect.
 		/// </summary>
-		public void Stop() {
-			StopAllCoroutines();
+		public void Stop ()
+		{
+			StopAllCoroutines ();
 			IsPlaying = false;
-			if (control != null) control.text = original;
+			if (control != null)
+				control.text = original;
 			original = string.Empty;
 		}
 		

@@ -92,6 +92,7 @@ public class Antagonist : MonoBehaviour
 		string[] randomLocationArray = locations [Random.Range (0, locations.Length)].Split (splitChar);
 		randomLocation = randomLocationArray [Random.Range (0, randomLocationArray.Length)];
 
+
 	
 	}
 

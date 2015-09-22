@@ -21,7 +21,7 @@ namespace PixelCrushers.DialogueSystem {
 		public string variableName = string.Empty;
 
 		protected string ActualVariableName { 
-			get { return string.IsNullOrEmpty(variableName) ? name : variableName; }
+			get { return string.IsNullOrEmpty(variableName) ? OverrideActorName.GetInternalName(transform) : variableName; }
 		}
 
 		private bool listenForOnDestroy = true;

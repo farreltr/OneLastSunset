@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -45,7 +46,9 @@ namespace PixelCrushers.DialogueSystem {
 				DrawCurrentStage();
 				CheckCreateNewDatabase();
 			} catch (System.Exception e) {
-				Debug.LogError("Error updating Dialogue Manager Setup Wizard window: " + e.Message);
+				if (!(e is ExitGUIException)) {
+					Debug.LogWarning("Error updating Dialogue Manager Setup Wizard window: " + e.Message);
+				}
 			}
 		}
 

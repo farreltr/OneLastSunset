@@ -4,13 +4,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace PixelCrushers.DialogueSystem {
+namespace PixelCrushers.DialogueSystem
+{
 	
 	/// <summary>
 	/// Subtitle Unity UI controls for UnityUIDialogueUI.
 	/// </summary>
 	[System.Serializable]
-	public class UnityUISubtitleControls : AbstractUISubtitleControls {
+	public class UnityUISubtitleControls : AbstractUISubtitleControls
+	{
 		
 		/// <summary>
 		/// The panel containing the response menu controls. A panel is optional, but you may want one
@@ -40,7 +42,7 @@ namespace PixelCrushers.DialogueSystem {
 		public UnityEngine.UI.Button continueButton;
 		
 		private bool haveSavedOriginalColor = false;
-		private Color originalColor = Color.white;
+		public Color originalColor = Color.white;
 
 		/// <summary>
 		/// Indicates whether this subtitle is currently assigned text.
@@ -49,7 +51,7 @@ namespace PixelCrushers.DialogueSystem {
 		/// <c>true</c> if it has text; otherwise, <c>false</c>.
 		/// </value>
 		public override bool HasText {
-			get { return (line != null) && !string.IsNullOrEmpty(line.text); }
+			get { return (line != null) && !string.IsNullOrEmpty (line.text); }
 		}
 		
 		/// <summary>
@@ -58,16 +60,18 @@ namespace PixelCrushers.DialogueSystem {
 		/// <param name='value'>
 		/// <c>true</c> for active; <c>false</c> for inactive.
 		/// </param>
-		public override void SetActive(bool value) {
-			Tools.SetGameObjectActive(line, value);
-			Tools.SetGameObjectActive(portraitImage, value);
-			Tools.SetGameObjectActive(portraitName, value);
-			Tools.SetGameObjectActive(continueButton, value);
-			Tools.SetGameObjectActive(panel, value);
+		public override void SetActive (bool value)
+		{
+			Tools.SetGameObjectActive (line, value);
+			Tools.SetGameObjectActive (portraitImage, value);
+			Tools.SetGameObjectActive (portraitName, value);
+			Tools.SetGameObjectActive (continueButton, value);
+			Tools.SetGameObjectActive (panel, value);
 		}
 		
-		public override void HideContinueButton() {
-			Tools.SetGameObjectActive(continueButton, false);
+		public override void HideContinueButton ()
+		{
+			Tools.SetGameObjectActive (continueButton, false);
 		}
 		
 		/// <summary>
@@ -76,23 +80,29 @@ namespace PixelCrushers.DialogueSystem {
 		/// <param name='subtitle'>
 		/// Subtitle.
 		/// </param>
-		public override void SetSubtitle(Subtitle subtitle) {
-			if ((subtitle != null) && !string.IsNullOrEmpty(subtitle.formattedText.text)) {
-				if (portraitImage != null) portraitImage.sprite = UITools.CreateSprite(subtitle.GetSpeakerPortrait());
-				if (portraitName != null) portraitName.text = subtitle.speakerInfo.Name;
-				if (line != null) SetFormattedText(line, subtitle.formattedText);
-				Show();
+		public override void SetSubtitle (Subtitle subtitle)
+		{
+			if ((subtitle != null) && !string.IsNullOrEmpty (subtitle.formattedText.text)) {
+				if (portraitImage != null)
+					portraitImage.sprite = UITools.CreateSprite (subtitle.GetSpeakerPortrait ());
+				if (portraitName != null)
+					portraitName.text = subtitle.speakerInfo.Name;
+				if (line != null)
+					SetFormattedText (line, subtitle.formattedText);
+				Show ();
 			} else {
-				if ((line != null) && (subtitle != null)) SetFormattedText(line, subtitle.formattedText);
-				Hide();
+				if ((line != null) && (subtitle != null))
+					SetFormattedText (line, subtitle.formattedText);
+				Hide ();
 			}
 		}
 
 		/// <summary>
 		/// Clears the subtitle.
 		/// </summary>
-		public override void ClearSubtitle() {
-			SetFormattedText(line, null);
+		public override void ClearSubtitle ()
+		{
+			SetFormattedText (line, null);
 		}
 		
 		/// <summary>
@@ -104,15 +114,16 @@ namespace PixelCrushers.DialogueSystem {
 		/// <param name='formattedText'>
 		/// Formatted text.
 		/// </param>
-		private void SetFormattedText(UnityEngine.UI.Text label, FormattedText formattedText) {
+		private void SetFormattedText (UnityEngine.UI.Text label, FormattedText formattedText)
+		{
 			if (label != null) {
 				if (formattedText != null) {
-					label.text = UITools.GetUIFormattedText(formattedText);
+					label.text = UITools.GetUIFormattedText (formattedText);
 					if (!haveSavedOriginalColor) {
 						originalColor = label.color;
 						haveSavedOriginalColor = true;
 					}
-					label.color = (formattedText.emphases.Length > 0) ? formattedText.emphases[0].color : originalColor;
+					label.color = (formattedText.emphases.Length > 0) ? formattedText.emphases [0].color : originalColor;
 				} else {
 					label.text = string.Empty;
 				}
@@ -126,18 +137,21 @@ namespace PixelCrushers.DialogueSystem {
 		/// </summary>
 		/// <param name="actorName">Actor name in database.</param>
 		/// <param name="portraitTexture">Portrait texture.</param>
-		public override void SetActorPortraitTexture(string actorName, Texture2D portraitTexture) {
-			if ((currentSubtitle != null) && string.Equals(currentSubtitle.speakerInfo.nameInDatabase, actorName)) {
-				if (portraitImage != null) portraitImage.sprite = UITools.CreateSprite(AbstractDialogueUI.GetValidPortraitTexture(actorName, portraitTexture));  //---Was: .texture = AbstractDialogueUI.GetValidPortraitTexture(actorName, portraitTexture);
+		public override void SetActorPortraitTexture (string actorName, Texture2D portraitTexture)
+		{
+			if ((currentSubtitle != null) && string.Equals (currentSubtitle.speakerInfo.nameInDatabase, actorName)) {
+				if (portraitImage != null)
+					portraitImage.sprite = UITools.CreateSprite (AbstractDialogueUI.GetValidPortraitTexture (actorName, portraitTexture));  //---Was: .texture = AbstractDialogueUI.GetValidPortraitTexture(actorName, portraitTexture);
 			}
 		}
 
 		/// <summary>
 		/// Auto-focuses the continue button. Useful for gamepads.
 		/// </summary>
-		public void AutoFocus() {
+		public void AutoFocus ()
+		{
 			if (continueButton != null && UnityEngine.EventSystems.EventSystem.current != null) {
-				UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(continueButton.gameObject, null);
+				UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject (continueButton.gameObject, null);
 			}
 		}
 		

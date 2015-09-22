@@ -8,7 +8,7 @@ public class UpdateInfo : MonoBehaviour
 	
 	void Update ()
 	{
-		AC.GVar updateInfo = AC.GlobalVariables.GetVariable (2);
+/*		AC.GVar updateInfo = AC.GlobalVariables.GetVariable (2);
 		if (updateInfo.val == 1) {
 			Antagonist belt = GameObject.FindObjectOfType<Antagonist> ();
 			string position = belt.GetPosition (70f - AC.GlobalVariables.GetVariable (16).floatVal);
@@ -45,7 +45,7 @@ public class UpdateInfo : MonoBehaviour
 				}
 
 			}
-		}
+		}*/
 	
 	}
 }

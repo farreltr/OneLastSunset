@@ -4,7 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace PixelCrushers.DialogueSystem {
+namespace PixelCrushers.DialogueSystem
+{
 
 	/// <summary>
 	/// This component implements IDialogueUI using Unity UI. It's based on 
@@ -24,7 +25,8 @@ namespace PixelCrushers.DialogueSystem {
 	/// controls as they are needed in the conversation.
 	/// </summary>
 	[AddComponentMenu("Dialogue System/UI/Unity UI/Dialogue/Unity UI Dialogue UI")]
-	public class UnityUIDialogueUI : AbstractDialogueUI {
+	public class UnityUIDialogueUI : AbstractDialogueUI
+	{
 		
 		/// <summary>
 		/// The UI root.
@@ -72,65 +74,80 @@ namespace PixelCrushers.DialogueSystem {
 		/// <summary>
 		/// Sets up the component.
 		/// </summary>
-		public override void Awake() {
-			base.Awake();
-			FindControls();
+		public override void Awake ()
+		{
+			base.Awake ();
+			FindControls ();
 		}
 		
 		/// <summary>
 		/// Logs warnings if any critical controls are unassigned.
 		/// </summary>
-		private void FindControls() {
-			qteControls = new UnityUIQTEControls(qteIndicators);
+		private void FindControls ()
+		{
+			qteControls = new UnityUIQTEControls (qteIndicators);
 			if (DialogueDebug.LogErrors) {
 				if (DialogueDebug.LogWarnings) {
-					if (dialogue.npcSubtitle.line == null) Debug.LogWarning(string.Format("{0}: UnityUIDialogueUI NPC Subtitle Line needs to be assigned.", DialogueDebug.Prefix));
-					if (dialogue.pcSubtitle.line == null) Debug.LogWarning(string.Format("{0}: UnityUIDialogueUI PC Subtitle Line needs to be assigned.", DialogueDebug.Prefix));
-					if (dialogue.responseMenu.buttons.Length == 0 && dialogue.responseMenu.buttonTemplate == null) Debug.LogWarning(string.Format("{0}: UnityUIDialogueUI Response buttons need to be assigned.", DialogueDebug.Prefix));
-					if (alert.line == null) Debug.LogWarning(string.Format("{0}: UnityUIDialogueUI Alert Line needs to be assigned.", DialogueDebug.Prefix));
+					if (dialogue.npcSubtitle.line == null)
+						Debug.LogWarning (string.Format ("{0}: UnityUIDialogueUI NPC Subtitle Line needs to be assigned.", DialogueDebug.Prefix));
+					if (dialogue.pcSubtitle.line == null)
+						Debug.LogWarning (string.Format ("{0}: UnityUIDialogueUI PC Subtitle Line needs to be assigned.", DialogueDebug.Prefix));
+					if (dialogue.responseMenu.buttons.Length == 0 && dialogue.responseMenu.buttonTemplate == null)
+						Debug.LogWarning (string.Format ("{0}: UnityUIDialogueUI Response buttons need to be assigned.", DialogueDebug.Prefix));
+					if (alert.line == null)
+						Debug.LogWarning (string.Format ("{0}: UnityUIDialogueUI Alert Line needs to be assigned.", DialogueDebug.Prefix));
 				}
 			}
 		}
 
-		public override void ShowAlert(string message, float duration) {
-			base.ShowAlert(message, duration);
-			if (autoFocus) alert.AutoFocus();
-			Invoke("HideAlert", duration);
+		public override void ShowAlert (string message, float duration)
+		{
+			base.ShowAlert (message, duration);
+			if (autoFocus)
+				alert.AutoFocus ();
+			Invoke ("HideAlert", duration);
 		}
 
-		public override void OnContinue() {
-			CancelInvoke("HideAlert");
-			base.OnContinue();
+		public override void OnContinue ()
+		{
+			CancelInvoke ("HideAlert");
+			base.OnContinue ();
 		}
 
-		public override void ShowSubtitle(Subtitle subtitle) {
-			HideResponses();
-			base.ShowSubtitle(subtitle);
-			CheckSubtitleAutoFocus(subtitle);
+		public override void ShowSubtitle (Subtitle subtitle)
+		{
+			HideResponses ();
+			base.ShowSubtitle (subtitle);
+			CheckSubtitleAutoFocus (subtitle);
 		}
 
-		public void CheckSubtitleAutoFocus(Subtitle subtitle) {
+		public void CheckSubtitleAutoFocus (Subtitle subtitle)
+		{
 			if (autoFocus) {
 				if (subtitle.speakerInfo.IsPlayer) {
-					dialogue.pcSubtitle.AutoFocus();
+					dialogue.pcSubtitle.AutoFocus ();
 				} else {
-					dialogue.npcSubtitle.AutoFocus();
+					dialogue.npcSubtitle.AutoFocus ();
 				}
 			}
 		}
 
-		public override void ShowResponses (Subtitle subtitle, Response[] responses, float timeout) {
-			base.ShowResponses(subtitle, responses, timeout);
-			CheckResponseMenuAutoFocus();
+		public override void ShowResponses (Subtitle subtitle, Response[] responses, float timeout)
+		{
+			base.ShowResponses (subtitle, responses, timeout);
+			CheckResponseMenuAutoFocus ();
 		}
 
-		public void CheckResponseMenuAutoFocus() {
-			if (autoFocus) dialogue.responseMenu.AutoFocus();
+		public void CheckResponseMenuAutoFocus ()
+		{
+			if (autoFocus)
+				dialogue.responseMenu.AutoFocus ();
 		}
 
-		public override void HideResponses() {
-			dialogue.responseMenu.DestroyInstantiatedButtons();
-			base.HideResponses();
+		public override void HideResponses ()
+		{
+			dialogue.responseMenu.DestroyInstantiatedButtons ();
+			base.HideResponses ();
 		}
 
 	}

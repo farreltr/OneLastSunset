@@ -1,13 +1,13 @@
 /*
 ------------------------------
   Dialogue System for Unity  
-       Version 1.4.5
+      Version 1.5.2
         
   Copyright © Pixel Crushers
 ------------------------------
 
 
-Thank you for supporting the Dialogue System for Unity! You now have a robust and proven
+Thank you for buying the Dialogue System for Unity! You now have a robust and proven
 system that will let you easily add AAA-quality conversations to your projects.
 
 We want your project to be a success! If you have any questions or feature requests, 

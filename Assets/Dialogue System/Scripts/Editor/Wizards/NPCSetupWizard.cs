@@ -39,6 +39,7 @@ namespace PixelCrushers.DialogueSystem {
 
 		private DialogueDatabase database = null;
 		private string[] conversationList = null;
+		private DialogueSystemController dialogueManager = null;
 		
 		/// <summary>
 		/// Draws the window.
@@ -108,10 +109,19 @@ namespace PixelCrushers.DialogueSystem {
 			EditorGUILayout.LabelField("Select Dialogue Database", EditorStyles.boldLabel);
 			EditorWindowTools.StartIndentedSection();
 			EditorGUILayout.HelpBox("Assign the dialogue database that the NPC will use for conversations and barks.", MessageType.Info);
+			if (dialogueManager == null) {
+				dialogueManager = FindObjectOfType<DialogueSystemController>();
+			}
+			if (database == null && dialogueManager != null) {
+				database = dialogueManager.initialDatabase;
+			}
 			DialogueDatabase newDatabase = EditorGUILayout.ObjectField("Dialogue Database", database, typeof(DialogueDatabase), true) as DialogueDatabase;
 			if (newDatabase != database) {
 				database = newDatabase;
 				CreateConversationList(database);
+			}
+			if (dialogueManager != null && database != null && dialogueManager.initialDatabase != database) {
+				EditorGUILayout.HelpBox("This is not the initial database assigned to the Dialogue Manager. Remember to load this database at runtime before using the NPC. You can use the Extra Databases component or DialogueManager.AddDatabase() in script. Also make sure the internal IDs are unique across databases. You can use the Unique ID Tool to do this.", MessageType.Warning);
 			}
 			EditorWindowTools.EndIndentedSection();
 			DrawNavigationButtons(true, (database != null), false);
@@ -129,6 +139,8 @@ namespace PixelCrushers.DialogueSystem {
 		}
 		
 		private string DrawConversationPopup(string title) {
+			if (conversationList == null) CreateConversationList(database);
+			if (conversationList == null) return string.Empty;
 			int index = GetConversationIndex(title);
 			index = EditorGUILayout.Popup("Conversation", index, conversationList);
 			return conversationList[index];
@@ -179,9 +191,13 @@ namespace PixelCrushers.DialogueSystem {
 			case DialogueTriggerEvent.OnConversationEnd: return "Will occur when the NPC receives an 'OnConversationEnd' message.";
 			case DialogueTriggerEvent.OnEnable: return "Will occur when the NPC's components are enabled (or re-enabled).";
 			case DialogueTriggerEvent.OnSequenceEnd: return "Will occur when the NPC receives an 'OnSequenceEnd' message.";
-			case DialogueTriggerEvent.OnStart: return "Will occur when the NPC object is instantiated.";
+			case DialogueTriggerEvent.OnStart: return "Will occur when the NPC object is started.";
 			case DialogueTriggerEvent.OnTriggerEnter: return "Will occur when a valid actor (usually the player) enters the NPC's trigger collider.";
 			case DialogueTriggerEvent.OnUse: return "Will occur when the NPC receives an 'OnUse' event. If the player has a Selector component, it can send OnUse. You can also send OnUse from scripts, cutscene sequences, etc.";
+			case DialogueTriggerEvent.OnDestroy: return "Will occur when the NPC object is destroyed.";
+			case DialogueTriggerEvent.OnDisable: return "Will occur when the corresponding component on the NPC is disabled.";
+			case DialogueTriggerEvent.OnTriggerExit: return "Will occur when a valid actor (usually the player) exits the NPC's trigger collider.";
+			case DialogueTriggerEvent.None: return "Will not be triggered automatically.";
 			default: return string.Empty;
 			}
 		}
