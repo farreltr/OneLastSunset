@@ -23,7 +23,7 @@ public class ShowPosition : MonoBehaviour
 		offBlocks = new List<Coordinated> ();
 		onBlocks = new List<Coordinated> ();
 		list = GameObject.FindObjectOfType<CoordList> ();
-		list = GenerateTestData (); // Uncomment for testing
+		//list = GenerateTestData (); // Uncomment for testing
 		offBlock.transform.localScale = Vector3.one * scale;
 		onBlock.transform.localScale = Vector3.one * scale;
 		for (float i=iStart; i<iEnd; i+=offset) {

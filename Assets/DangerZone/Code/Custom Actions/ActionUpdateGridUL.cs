@@ -50,9 +50,9 @@ namespace AC
 
 			CoordList coords = GameObject.FindObjectOfType<CoordList> ();
 			if (direction == "north") {
-				int x = Mathf.RoundToInt (placeCoord.x);
+				int y = Mathf.RoundToInt (placeCoord.y);
 				for (int i = 0; i<18; i++) {
-					for (int j=0; j<x; j++) {
+					for (int j=0; j<y; j++) {
 						Vector2 vec = new Vector2 (i, j);
 						if (!coords.coordinates.Contains (vec)) {
 							coords.coordinates.Add (vec);
@@ -63,9 +63,9 @@ namespace AC
 
 			}
 			if (direction == "south") {
-				int x = Mathf.RoundToInt (placeCoord.x);
+				int y = Mathf.RoundToInt (placeCoord.y);
 				for (int i = 0; i<18; i++) {
-					for (int j=8; j>x; j--) {
+					for (int j=8; j>y; j--) {
 						Vector2 vec = new Vector2 (i, j);
 						if (!coords.coordinates.Contains (vec)) {
 							coords.coordinates.Add (vec);
@@ -75,8 +75,8 @@ namespace AC
 				}
 			}
 			if (direction == "east") {
-				int y = Mathf.RoundToInt (placeCoord.y);
-				for (int i = 0; i<y; i++) {
+				int x = Mathf.RoundToInt (placeCoord.x);
+				for (int i = 0; i<x; i++) {
 					for (int j=0; j<9; j++) {
 						Vector2 vec = new Vector2 (i, j);
 						if (!coords.coordinates.Contains (vec)) {
@@ -89,8 +89,8 @@ namespace AC
 			}
 			if (direction == "west") {
 
-				int y = Mathf.RoundToInt (placeCoord.y);
-				for (int i = 16; i>y; i--) {
+				int x = Mathf.RoundToInt (placeCoord.x);
+				for (int i = 16; i>x; i--) {
 					for (int j=0; j<9; j++) {
 						Vector2 vec = new Vector2 (i, j);
 						if (!coords.coordinates.Contains (vec)) {

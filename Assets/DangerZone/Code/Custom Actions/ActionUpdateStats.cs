@@ -34,7 +34,7 @@ namespace AC
 			GVar timeVar = AC.GlobalVariables.GetVariable (16);
 			GVar gasVar = AC.GlobalVariables.GetVariable (7);
 			string journeyString = loc.GetValue () + "_" + location.name;
-			CheckWinForJourney (timeVar.floatVal, time, journeyString, location.name);
+			//CheckWinForJourney (timeVar.floatVal, time, journeyString, location.name);
 			timeVar.floatVal = timeVar.floatVal - time;
 			gasVar.val = gasVar.val - gas;
 			Vector3 updatedPosition = location.transform.position;

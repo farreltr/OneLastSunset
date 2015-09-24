@@ -24,22 +24,29 @@ namespace AC
 			Random.seed = System.DateTime.Now.Millisecond;
 			CoordList coords = GameObject.FindObjectOfType<CoordList> ();
 			string placeName = AC.GlobalVariables.GetStringValue (30);
-			ShowPosition grid = GameObject.FindObjectOfType<ShowPosition> ();
-			Vector2 placeCoord = coords.GetCoordinateForPlace (placeName);
-			float x = coords.beltCoord.x - placeCoord.x; // pos east, neg west
-			float y = coords.beltCoord.y - placeCoord.y; // pos north, neg south
-			string direction;
+			if (coords != null) {
+				Vector2 placeCoord = coords.GetCoordinateForPlace (placeName);
+				if (placeCoord != null) {
+					float x = coords.beltCoord.x - placeCoord.x; // pos east, neg west
+					float y = coords.beltCoord.y - placeCoord.y; // pos north, neg south
+					string direction;
+					
+					if (Mathf.Abs (x) > Mathf.Abs (y)) { // More across than up
+						direction = x > 0 ? "east" : "west";
+						
+					} else if (Mathf.Abs (x) < Mathf.Abs (y)) {// More up than across
+						direction = y > 0 ? "north" : "south";
+					} else {
+						direction = Random.Range (0, 1) > 0 ? x > 0 ? "east" : "west" : y > 0 ? "north" : "south";
+					}
+					AC.GlobalVariables.SetStringValue (39, direction);
+					//TurnOnCoords (direction, placeCoord);
+					
+				}
 
-			if (Mathf.Abs (x) > Mathf.Abs (y)) { // More across than up
-				direction = x > 0 ? "east" : "west";
 
-			} else if (Mathf.Abs (x) < Mathf.Abs (y)) {// More up than across
-				direction = y > 0 ? "north" : "south";
-			} else {
-				direction = Random.Range (0, 1) > 0 ? x > 0 ? "east" : "west" : y > 0 ? "north" : "south";
 			}
-			AC.GlobalVariables.SetStringValue (39, direction);
-			//TurnOnCoords (direction, placeCoord);
+
 
 			return 0f;
 

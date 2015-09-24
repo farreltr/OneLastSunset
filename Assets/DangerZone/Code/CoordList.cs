@@ -20,7 +20,7 @@ public class CoordList : MonoBehaviour
 	private void SetPlaceCoordinates ()
 	{
 
-		places.Add ("foxs", new Vector2 (6, 4));
+		places.Add ("foxs", new Vector2 (6, 5));
 		places.Add ("jebs", new Vector2 (10, 6));
 		places.Add ("canyon", new Vector2 (12, 1));
 		places.Add ("coyotepoint", new Vector2 (16, 5));
@@ -40,7 +40,9 @@ public class CoordList : MonoBehaviour
 	public Vector2 GetCoordinateForPlace (string placeName)
 	{
 		Vector2 coord = Vector2.one;
-		places.TryGetValue (placeName, out coord);
+		if (places != null || places.Count != 0) {
+			places.TryGetValue (placeName, out coord);
+		}
 		return coord;
 	}
 	
