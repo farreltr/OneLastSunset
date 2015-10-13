@@ -60,11 +60,12 @@ namespace AC
 					float distance = ComputeDistance (currentLocation, place.transform.position);
 					int gas = ComputeGas (currentLocation, place.transform.position);
 					float time = ComputeTime (distance);
-					string label = place.hotspotName;
-					label = label + "\n - Distance " 
-						+ distance.ToString () + " miles \n " +
-						"- Time " + time.ToString () + " hours \n " +
-						"- Gas " + gas.ToString () + "%";
+					string label = place.gameObject.name;
+					label = label + "\n" + distance.ToString () + " Miles\n" 
+						+ time.ToString () + " HOURS\n"
+						+ gas.ToString () + "% GAS\n\n"
+						+ place.hotspotName;
+
 					place.hotspotName = label;
 				}
 
