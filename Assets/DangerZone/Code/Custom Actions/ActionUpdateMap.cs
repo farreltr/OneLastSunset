@@ -40,7 +40,7 @@ namespace AC
 			}
 			GVar loc = AC.GlobalVariables.GetVariable (30);
 
-			Vector3 currentLocation;
+			/*	Vector3 currentLocation;
 			if (loc.GetValue () == "") {
 				Vector3 jebs = GameObject.FindGameObjectWithTag ("visible.jebs").transform.position;
 				Vector3 foxs = GameObject.FindGameObjectWithTag ("visible.foxs").transform.position; 
@@ -53,20 +53,24 @@ namespace AC
 				currentLocation.y = currentLocation.y + 0.25f;
 
 			}
-			GameObject.FindGameObjectWithTag ("current.location").transform.position = currentLocation;
+			GameObject.FindGameObjectWithTag ("current.location").transform.position = currentLocation;*/
 
-			foreach (Hotspot place in GameObject.FindObjectsOfType<Hotspot>()) {
+			Protagonist protag = FindObjectOfType<Protagonist> ();
+
+			foreach (Place place in GameObject.FindObjectsOfType<Place>()) {
 				if (place.gameObject.tag != "visible." + loc.GetValue () && place.isActiveAndEnabled) {
-					float distance = ComputeDistance (currentLocation, place.transform.position);
-					int gas = ComputeGas (currentLocation, place.transform.position);
+					float distance = ComputeDistance (protag.GetCoordinate (), place.GetCoordinate ());
+					int gas = ComputeGas (protag.GetCoordinate (), place.GetCoordinate ());
 					float time = ComputeTime (distance);
+					Hotspot hotspot = place.GetComponent<Hotspot> ();
+
 					string label = place.gameObject.name;
 					label = label + "\n" + distance.ToString () + " Miles\n" 
 						+ time.ToString () + " HOURS\n"
 						+ gas.ToString () + "% GAS\n\n"
-						+ place.hotspotName;
+						+ hotspot.hotspotName;
 
-					place.hotspotName = label;
+					hotspot.hotspotName = label;
 				}
 
 			}
@@ -75,9 +79,9 @@ namespace AC
 
 		}
 
-		private float ComputeDistance (Vector3 currentLocation, Vector3 otherLocation)
+		private float ComputeDistance (Vector2 currentLocation, Vector2 otherLocation)
 		{
-			float distance = Vector3.Distance (currentLocation, otherLocation);
+			float distance = Vector2.Distance (currentLocation, otherLocation);
 			distance = Mathf.Round (distance * 100f) / 100f;
 			return distance * distanceMultiplier;
 
@@ -91,10 +95,10 @@ namespace AC
 			
 		}
 
-		private int ComputeGas (Vector3 currentLocation, Vector3 otherLocation)
+		private int ComputeGas (Vector2 currentLocation, Vector2 otherLocation)
 		{
 			float modifier = ComputeModifier ();
-			float distance = Vector3.Distance (currentLocation, otherLocation);
+			float distance = Vector2.Distance (currentLocation, otherLocation);
 			float modulo = distance * 5 / 3;
 			return Mathf.FloorToInt (modulo);
 			
@@ -116,7 +120,6 @@ namespace AC
 		
 		public override string SetLabel ()
 		{
-			// Return a string used to describe the specific action's job.
 			return (" (Update place visibility on map) ");
 		}
 

@@ -2,23 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Antagonist : MonoBehaviour
+public class Protagonist : MonoBehaviour
 {
-	private static Antagonist instance;
-	private Vector2 coordinate = -Vector2.one;
-	private AC.Hotspot hotspot;
+
+	private static Protagonist instance;
 	private SpriteRenderer renderer;
-	private BoxCollider2D collider2d;
+	private Vector2 coordinate = -Vector2.one;
 	private IDictionary<Vector2, Coordinated> boxes = new Dictionary<Vector2, Coordinated> ();
 	
-	private Antagonist ()
+	private Protagonist ()
 	{
 	}
 	
-	public static Antagonist Instance {
+	public static Protagonist Instance {
 		get {
 			if (instance == null) {
-				instance = new Antagonist ();
+				instance = new Protagonist ();
 			}
 			return instance;
 		}
@@ -26,22 +25,24 @@ public class Antagonist : MonoBehaviour
 
 	void Start ()
 	{
-		Random.seed = System.DateTime.Now.Millisecond;
 		DontDestroyOnLoad (this.gameObject);
 		this.renderer = GetComponent<SpriteRenderer> ();
-		this.hotspot = GetComponent<AC.Hotspot> ();
-		this.collider2d = GetComponent<BoxCollider2D> ();
-		SetActive (false);
 	}
 
-	
+	void Update ()
+	{
+		this.renderer.enabled = Application.loadedLevelName == "Map";
+
+	}
+
 	public Vector2 GetCoordinate ()
 	{
+
 		if (coordinate == -Vector2.one) {
-			SetCoordinate (new Vector2 (Random.Range (1, 17), Random.Range (1, 8)));
+			SetCoordinate (new Vector2 (Random.Range (7, 14), Random.Range (2, 6)));
 		}
 		return coordinate;
-		
+	
 	}
 
 	public void SetCoordinate (Vector2 coord)
@@ -51,27 +52,12 @@ public class Antagonist : MonoBehaviour
 		if (value != null) {
 			transform.parent = value.transform;
 			transform.localPosition = Vector3.one;
-		}
-	}
-
-	public void SetActive (bool active)
-	{
-		this.renderer.enabled = active;
-		this.hotspot.enabled = active;
-		this.collider2d.enabled = active;
-	}
-
-	public IDictionary<Vector2,Coordinated> GetBlocks ()
-	{
-		if (boxes.Count == 0) {
-			Coordinated[] coords = FindObjectsOfType<Coordinated> ();
-			foreach (Coordinated coord in coords) {
-				if (!boxes.ContainsKey (coord.GetCoordinate ())) {
-					boxes.Add (coord.GetCoordinate (), coord);
-				}
+			Place place = value.GetComponentInChildren<Place> ();
+			if (place != null) {
+				AC.GlobalVariables.SetStringValue (30, place.GetName ());
 			}
 		}
-		return boxes;
+		
 	}
 
 	Coordinated GetCoordinated (Vector2 coord)
@@ -82,7 +68,21 @@ public class Antagonist : MonoBehaviour
 			}
 		}
 		return null;
-		
+
+	}
+
+	public IDictionary<Vector2,Coordinated> GetBlocks ()
+	{
+		if (boxes.Count == 0) {
+			Coordinated[] coords = FindObjectsOfType<Coordinated> ();
+			foreach (Coordinated coord in coords) {
+				if (!boxes.ContainsKey (coord.GetCoordinate ())) {
+					boxes.Add (coord.GetCoordinate (), coord);
+				}
+				
+			}
+		}
+		return boxes;
 	}
 
 }

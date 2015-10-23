@@ -1,15 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Place : MonoBehaviour {
+public class Place : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
+	private SpriteRenderer renderer;
 	
+	void Start ()
+	{
+		this.renderer = GetComponent<SpriteRenderer> ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+	{
+		this.renderer.enabled = Application.loadedLevelName == "Map";
+	}
+
+	public Vector2 GetCoordinate ()
+	{
+		return GetComponentInParent<Coordinated> ().coordinate;
+	}
+
+	public string GetName ()
+	{
+		return this.gameObject.name.ToUpper ();
 	}
 }

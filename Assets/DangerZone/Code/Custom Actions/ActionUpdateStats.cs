@@ -11,9 +11,10 @@ namespace AC
 	[System.Serializable]
 	public class ActionUpdateStats : Action
 	{
-		public GameObject location;
+		public string locationName;
 		private float speed = 100f;
 		private int gameOver = 0;
+		private Vector2 currentCoordinate;
 		
 		public ActionUpdateStats ()
 		{
@@ -24,22 +25,23 @@ namespace AC
 		
 		override public float Run ()
 		{
+			Protagonist protag = GameObject.FindObjectOfType<Protagonist> ();
+			Place location = GameObject.Find (locationName).GetComponent<Place> ();
+			Vector2 protagCoord = protag.GetCoordinate ();
+
 			gameOver = AC.GlobalVariables.GetVariable (35).val;
 			GVar loc = AC.GlobalVariables.GetVariable (30);
-			GameObject currentLoc = GameObject.FindObjectOfType<Player> ().gameObject;
-			Vector3 currentLocation = currentLoc.transform.position;
-			float distance = ComputeDistance (currentLocation, location.transform.position);
-			int gas = ComputeGas (currentLocation, location.transform.position);
+			float distance = ComputeDistance (protagCoord, location.GetCoordinate ());
+			int gas = ComputeGas (protagCoord, location.GetCoordinate ());
 			float time = ComputeTime (distance);
 			GVar timeVar = AC.GlobalVariables.GetVariable (16);
 			GVar gasVar = AC.GlobalVariables.GetVariable (7);
-			string journeyString = loc.GetValue () + "_" + location.name;
-			//CheckWinForJourney (timeVar.floatVal, time, journeyString, location.name);
 			timeVar.floatVal = timeVar.floatVal - time;
 			gasVar.val = gasVar.val - gas;
-			Vector3 updatedPosition = location.transform.position;
-			updatedPosition.y = updatedPosition.y + 0.25f;
-			currentLoc.transform.position = updatedPosition;
+			currentCoordinate = location.GetCoordinate ();
+			protag.SetCoordinate (currentCoordinate);
+			protag.transform.parent = location.transform;
+			protag.transform.localPosition = Vector3.zero;
 			return 0f;
 		}
 
@@ -49,7 +51,7 @@ namespace AC
 			int currInt = 70 - Mathf.RoundToInt (current);
 			int tInt = Mathf.RoundToInt (timeDecrease);
 			for (int i = currInt; i < currInt + tInt; i++) {
-				if (belt.GetPosition (i) == journeyString || belt.GetPosition (i) == locationName) {
+				if (belt.GetCoordinate () == currentCoordinate) {
 					GVar bullets = AC.GlobalVariables.GetVariable (5);
 					AC.GlobalVariables.GetVariable (35).val = 1;
 					if (bullets.val <= 0) {
@@ -66,12 +68,11 @@ namespace AC
 		}
 	
 
-		private float ComputeDistance (Vector3 currentLocation, Vector3 otherLocation)
+		private float ComputeDistance (Vector2 currentLocation, Vector2 otherLocation)
 		{
-			float distance = Vector3.Distance (currentLocation, otherLocation);
+			float distance = Vector2.Distance (currentLocation, otherLocation);
 			distance = Mathf.Round (distance * 100f) / 100f;
 			return distance * ActionUpdateMap.distanceMultiplier;
-
 		}
 
 		private float ComputeTime (float distance)
@@ -79,16 +80,14 @@ namespace AC
 			float time = distance / speed;
 			time = Mathf.Round (time * 10f) / 10f;
 			return time;
-			
 		}
 
-		private int ComputeGas (Vector3 currentLocation, Vector3 otherLocation)
+		private int ComputeGas (Vector2 currentLocation, Vector2 otherLocation)
 		{
 			float modifier = ComputeModifier ();
-			float distance = Vector3.Distance (currentLocation, otherLocation);
+			float distance = Vector2.Distance (currentLocation, otherLocation);
 			float modulo = distance * 5 / 3;
 			return Mathf.FloorToInt (modulo);
-			
 		}
 
 		private float ComputeModifier ()
@@ -101,14 +100,13 @@ namespace AC
 
 		override public void ShowGUI ()
 		{
-			location = (GameObject)EditorGUILayout.ObjectField ("Location:", location, typeof(GameObject), true);
+			locationName = EditorGUILayout.TextField ("Location Name: ", locationName);
 			AfterRunningOption ();
 		}
 		
 		
 		public override string SetLabel ()
 		{
-			// Return a string used to describe the specific action's job.
 			return (" (Update stats on move to location) ");
 		}
 

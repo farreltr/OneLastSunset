@@ -5,14 +5,24 @@ public class Coordinated : MonoBehaviour
 {
 	
 	public Vector2 coordinate;
-	private ShowPosition grid;
 	public bool isOn;
+	public Sprite onSprite;
+	public Sprite offSprite;
+	private SpriteRenderer renderer;
+	private BoxCollider2D collider2d;
 
-	void OnStart ()
+	void Start ()
 	{
-		grid = GameObject.FindObjectOfType<ShowPosition> ();
-		SetCoordinate (grid.GetCoordinateFromPosition (this.transform.position));
+		this.renderer = GetComponent<SpriteRenderer> ();
+		this.collider2d = GetComponent<BoxCollider2D> ();
 	}
+
+	void Update ()
+	{
+		this.renderer.enabled = Application.loadedLevelName == "Map";
+		this.collider2d.enabled = Application.loadedLevelName == "Map";
+	}
+	
 
 	public void SetCoordinate (Vector2 coord)
 	{
@@ -24,8 +34,17 @@ public class Coordinated : MonoBehaviour
 		return this.coordinate;
 	}
 
-	public bool IsPositionAtCoordinate (Vector3 pos)
+	public void TurnOn ()
 	{
-		return coordinate == grid.GetCoordinateFromPosition (pos);
+		this.GetComponent<SpriteRenderer> ().sprite = onSprite;
+		isOn = true;
 	}
+
+	public void TurnOff ()
+	{
+		this.GetComponent<SpriteRenderer> ().sprite = offSprite;
+		isOn = false;
+
+	}
+	
 }
