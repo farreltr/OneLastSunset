@@ -68,7 +68,7 @@ namespace AC
 					label = label + "\n" + distance.ToString () + " Miles\n" 
 						+ time.ToString () + " HOURS\n"
 						+ gas.ToString () + "% GAS\n\n"
-						+ hotspot.hotspotName;
+						+ place.GetDescription ();
 
 					hotspot.hotspotName = label;
 				}

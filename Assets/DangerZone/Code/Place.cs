@@ -6,6 +6,7 @@ public class Place : MonoBehaviour
 
 	private SpriteRenderer renderer;
 	private BoxCollider2D collider2d;
+	public string description;
 	
 	void Start ()
 	{
@@ -28,4 +29,16 @@ public class Place : MonoBehaviour
 	{
 		return this.gameObject.name.ToUpper ();
 	}
+
+	public string GetDescription ()
+	{
+		return description;
+	}
+
+	public void SetDescription (string description)
+	{
+		this.description = description;
+	}
+
+
 }
