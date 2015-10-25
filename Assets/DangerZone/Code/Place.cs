@@ -5,15 +5,18 @@ public class Place : MonoBehaviour
 {
 
 	private SpriteRenderer renderer;
+	private BoxCollider2D collider2d;
 	
 	void Start ()
 	{
 		this.renderer = GetComponent<SpriteRenderer> ();
+		this.collider2d = GetComponent<BoxCollider2D> ();
 	}
 	
 	void Update ()
 	{
 		this.renderer.enabled = Application.loadedLevelName == "Map";
+		this.collider2d.enabled = Application.loadedLevelName == "Map";
 	}
 
 	public Vector2 GetCoordinate ()

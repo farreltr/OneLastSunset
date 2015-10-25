@@ -9,6 +9,8 @@ public class Protagonist : MonoBehaviour
 	private SpriteRenderer renderer;
 	private Vector2 coordinate = -Vector2.one;
 	private IDictionary<Vector2, Coordinated> boxes = new Dictionary<Vector2, Coordinated> ();
+	private bool isDriving = false;
+	private string currentLocation;
 	
 	private Protagonist ()
 	{
@@ -55,6 +57,7 @@ public class Protagonist : MonoBehaviour
 			Place place = value.GetComponentInChildren<Place> ();
 			if (place != null) {
 				AC.GlobalVariables.SetStringValue (30, place.GetName ());
+				SetCurrentLocation (place.GetName ());
 			}
 		}
 		
@@ -84,5 +87,30 @@ public class Protagonist : MonoBehaviour
 		}
 		return boxes;
 	}
+
+	public bool IsDriving ()
+	{
+		return isDriving;
+	}
+
+	public void SetDriving (bool isDriving)
+	{
+		this.isDriving = isDriving;
+	}
+
+	public string GetCurrentLocation ()
+	{
+		if (currentLocation == null || currentLocation == "") {
+			currentLocation = "UNKNOWN";
+		}
+		return currentLocation;
+	}
+
+	public void SetCurrentLocation (string currentLocation)
+	{
+		this.currentLocation = currentLocation;
+	}
+
+
 
 }
