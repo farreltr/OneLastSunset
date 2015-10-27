@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PixelCrushers.DialogueSystem;
 
 public class NPCController : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class NPCController : MonoBehaviour
 	public float aimMin = 0.5f;
 	public float aimMax = 1.5f;
 	private static bool isToggling = false;
+	private BarkTrigger barkTrigger;
 	
 	void Start ()
 	{
 		Random.seed = System.DateTime.Now.Millisecond * 10373289;
 		renderer = this.GetComponent<SpriteRenderer> ();
 		player = GameObject.FindObjectOfType<PlayerController> ();
+		barkTrigger = this.GetComponent<BarkTrigger> ();
 		InvokeRepeating ("Toggle", 3f, 0.5f);
 	}
 
@@ -54,7 +57,8 @@ public class NPCController : MonoBehaviour
 		this.renderer.sprite = shoot;
 		if (player.IsStanding ()) {
 			AC.GlobalVariables.SetIntegerValue (6, AC.GlobalVariables.GetIntegerValue (6) - 1);
-			GameObject.Find ("PlayerHit").GetComponent <AC.Cutscene> ().Interact ();
+			player.GetBarkTrigger ().TryBark (this.transform);
+			//GameObject.Find ("PlayerHit").GetComponent <AC.Cutscene> ().Interact ();
 		}
 		StartCoroutine (Fire ());
 
@@ -79,5 +83,10 @@ public class NPCController : MonoBehaviour
 	public bool IsStanding ()
 	{
 		return this.renderer.sprite == stand;
+	}
+
+	public BarkTrigger GetBarkTrigger ()
+	{
+		return barkTrigger;
 	}
 }
