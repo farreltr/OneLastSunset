@@ -12,7 +12,7 @@ namespace AC
 	public class ActionUpdateMap : Action
 	{
 
-		private int[] placeIndices = {1,4,9,11,19,20,21,22,23,24,25,26,27,28,29};
+		private int[] placeIndices = {4,9,11,19,20,21,22,23,24,25,26,27,28,29};
 		private float speed = 100;
 		public static float distanceMultiplier = 180f;
 		
