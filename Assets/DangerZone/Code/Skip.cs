@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Skip : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Skip : MonoBehaviour
 		if (grid != null) {
 			DestroyObject (grid);
 		}
+		this.GetComponent<Text> ().CrossFadeAlpha (255, 1000, false);
 	}
 
 	void Update ()
