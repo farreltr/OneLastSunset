@@ -9,10 +9,13 @@ public class Grid : MonoBehaviour
 	private Antagonist antagonist;
 	private Protagonist protagonist;
 	private string direction;
+	public bool isDebug;
 
 	void Start ()
 	{
 		DontDestroyOnLoad (this.gameObject);
+		antagonist = FindObjectOfType<Antagonist> ();
+		protagonist = FindObjectOfType<Protagonist> ();
 	
 	}
 
@@ -24,6 +27,9 @@ public class Grid : MonoBehaviour
 			AC.GlobalVariables.SetBooleanValue (2, false);
 		}
 		if (EnableBelt ()) {
+			if (antagonist == null) {
+				antagonist = FindObjectOfType<Antagonist> ();
+			}
 			antagonist.SetActive (true);
 		}
 
@@ -31,6 +37,9 @@ public class Grid : MonoBehaviour
 
 	private bool EnableBelt ()
 	{
+		if (isDebug) {
+			return true;
+		}
 		int count = 0;
 		foreach (Coordinated c in FindObjectsOfType<Coordinated>()) {
 			if (!c.isOn) {
@@ -70,9 +79,9 @@ public class Grid : MonoBehaviour
 		if (Mathf.Abs (x) > Mathf.Abs (y)) {
 			direction = x > 0 ? "east" : "west";
 		} else if (Mathf.Abs (x) < Mathf.Abs (y)) {
-			direction = y > 0 ? "south" : "north";
+			direction = y > 0 ? "north" : "south";
 		} else {
-			direction = Random.Range (0, 1) > 0 ? x > 0 ? "east" : "west" : y > 0 ? "south" : "north";
+			direction = Random.Range (0, 1) > 0 ? x > 0 ? "east" : "west" : y > 0 ? "north" : "south";
 		}
 		AC.GlobalVariables.SetStringValue (39, direction);
 	}

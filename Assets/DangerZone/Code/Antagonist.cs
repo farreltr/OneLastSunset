@@ -50,15 +50,15 @@ public class Antagonist : MonoBehaviour
 		Coordinated value = GetCoordinated (coord);
 		if (value != null) {
 			transform.parent = value.transform;
-			transform.localPosition = Vector3.one;
+			transform.localPosition = Vector3.zero;
 		}
 	}
 
 	public void SetActive (bool active)
 	{
-		this.renderer.enabled = active;
-		this.hotspot.enabled = active;
-		this.collider2d.enabled = active;
+		this.renderer.enabled = active && Application.loadedLevelName == "Map";
+		this.hotspot.enabled = active && Application.loadedLevelName == "Map";
+		this.collider2d.enabled = active && Application.loadedLevelName == "Map";
 	}
 
 	public IDictionary<Vector2,Coordinated> GetBlocks ()
