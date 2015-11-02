@@ -72,11 +72,11 @@ namespace AC
 		/** The ActionListAsset to run when the item is examined, if multiple interactions are disallowed */
 		public ActionListAsset lookActionList;
 		/** A List of all "Use" InvInteraction objects associated with the item */
-		public List<InvInteraction> interactions = new List<InvInteraction>();
+		public List<InvInteraction> interactions = new List<InvInteraction> ();
 		/** A List of all "Combine" InvInteraction objects associated with the item */
-		public List<ActionListAsset> combineActionList = new List<ActionListAsset>();
+		public List<ActionListAsset> combineActionList = new List<ActionListAsset> ();
 		/** A List of InvItem ID numbers associated with the InvInteraction objects in combineActionList */
-		public List<int> combineID = new List<int>();
+		public List<int> combineID = new List<int> ();
 		/** The ActionListAsset to run when using the item on a Hotspot is unhandled */
 		public ActionListAsset unhandledActionList;
 		/** The ActionListAsset to run when using the item on another InvItem is unhandled */
@@ -98,18 +98,17 @@ namespace AC
 			useSeparateSlots = false;
 			carryOnStartNotDefault = false;
 
-			interactions = new List<InvInteraction>();
+			interactions = new List<InvInteraction> ();
 
-			combineActionList = new List<ActionListAsset>();
-			combineID = new List<int>();
+			combineActionList = new List<ActionListAsset> ();
+			combineID = new List<int> ();
 
 			overrideUseSyntax = false;
 			hotspotPrefix1 = new HotspotPrefix ("Use");
 			hotspotPrefix2 = new HotspotPrefix ("on");
 
 			// Update id based on array
-			foreach (int _id in idArray)
-			{
+			foreach (int _id in idArray) {
 				if (id == _id)
 					id ++;
 			}
@@ -163,12 +162,9 @@ namespace AC
 		 */
 		public bool DoesHaveInventoryInteraction (InvItem invItem)
 		{
-			if (invItem != null)
-			{
-				foreach (int invID in combineID)
-				{
-					if (invID == invItem.id)
-					{
+			if (invItem != null) {
+				foreach (int invID in combineID) {
+					if (invID == invItem.id) {
 						return true;
 					}
 				}
@@ -185,17 +181,13 @@ namespace AC
 		 */
 		public string GetLabel (int languageNumber)
 		{
-			if (languageNumber > 0)
-			{
+			if (languageNumber > 0) {
 				return (SpeechManager.GetTranslation (label, lineID, languageNumber));
-			}
-			else
-			{
-				if (altLabel != "")
-				{
+			} else {
+				if (altLabel != "") {
 					return altLabel;
 				}
-				return label;
+				return altLabel;
 			}
 		}
 
@@ -207,25 +199,19 @@ namespace AC
 		 */
 		public int GetNextInteraction (int i, int numInvInteractions)
 		{
-			if (i < interactions.Count)
-			{
+			if (i < interactions.Count) {
 				i ++;
 
-				if (i >= interactions.Count + numInvInteractions)
-				{
+				if (i >= interactions.Count + numInvInteractions) {
 					return 0;
-				}
-				else
-				{
+				} else {
 					return i;
 				}
-			}
-			else if (i == interactions.Count - 1 + numInvInteractions)
-			{
+			} else if (i == interactions.Count - 1 + numInvInteractions) {
 				return 0;
 			}
 			
-			return (i+1);
+			return (i + 1);
 		}
 		
 
@@ -236,29 +222,21 @@ namespace AC
 		 */
 		public int GetPreviousInteraction (int i, int numInvInteractions)
 		{
-			if (i > interactions.Count && numInvInteractions > 0)
-			{
-				return (i-1);
-			}
-			else if (i == 0)
-			{
+			if (i > interactions.Count && numInvInteractions > 0) {
+				return (i - 1);
+			} else if (i == 0) {
 				return GetNumInteractions (numInvInteractions) - 1;
-			}
-			else if (i <= interactions.Count)
-			{
+			} else if (i <= interactions.Count) {
 				i --;
 
-				if (i < 0)
-				{
+				if (i < 0) {
 					return GetNumInteractions (numInvInteractions) - 1;
-				}
-				else
-				{
+				} else {
 					return i;
 				}
 			}
 			
-			return (i-1);
+			return (i - 1);
 		}
 
 
