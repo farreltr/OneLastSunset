@@ -94,7 +94,7 @@ public class Grid : MonoBehaviour
 		if (direction == "south") {
 			int y = Mathf.RoundToInt (coord.y);
 			for (int i = 0; i<18; i++) {
-				for (int j=y+1; j>0; j--) {
+				for (int j=y; j>-1; j--) {
 					TurnOn (i, j);
 				}
 			}
