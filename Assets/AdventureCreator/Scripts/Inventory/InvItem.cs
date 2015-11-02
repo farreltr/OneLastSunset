@@ -187,6 +187,7 @@ namespace AC
 				if (altLabel != "") {
 					return altLabel;
 				}
+				// return label. This is a hack *TODO* Tracey
 				return altLabel;
 			}
 		}

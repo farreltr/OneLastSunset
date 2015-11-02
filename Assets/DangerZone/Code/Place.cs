@@ -9,6 +9,7 @@ public class Place : MonoBehaviour
 	private BoxCollider2D collider2d;
 	private Hotspot hotspot;
 	public string description;
+	private bool isActive;
 	
 	void Start ()
 	{
@@ -19,9 +20,9 @@ public class Place : MonoBehaviour
 	
 	void Update ()
 	{
-		this.renderer.enabled = Application.loadedLevelName == "Map";
-		this.collider2d.enabled = Application.loadedLevelName == "Map";
-		if (Application.loadedLevelName == "Map") {
+		this.renderer.enabled = isActive && Application.loadedLevelName == "Map";
+		this.collider2d.enabled = isActive && Application.loadedLevelName == "Map";
+		if (isActive && Application.loadedLevelName == "Map") {
 			this.hotspot.TurnOn ();
 		} else {
 			this.hotspot.TurnOff ();
@@ -48,5 +49,14 @@ public class Place : MonoBehaviour
 		this.description = description;
 	}
 
+	public void TurnOn ()
+	{
+		this.isActive = true;
+	}
+
+	public void TurnOff ()
+	{
+		this.isActive = false;
+	}
 
 }

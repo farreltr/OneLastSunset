@@ -32,9 +32,12 @@ namespace AC
 				bool visible = AC.GlobalVariables.GetBooleanValue (idx);
 				foreach (GameObject place in GameObject.FindGameObjectsWithTag(name)) {
 					if (place.GetComponent<Mark> () == null) {
-						place.SetActive (visible);
+						if (visible) {
+							place.GetComponent<Place> ().TurnOn ();	
+						} else {
+							place.GetComponent<Place> ().TurnOff ();
+						}
 					}
-
 				}
 
 			}
