@@ -4,7 +4,7 @@ using System.Collections;
 public class Target : MonoBehaviour
 {
 
-	public GameObject target;
+	public Vector3 target;
 	public float movementSpeed = 5f;
 	public float rotationSpeed = 90f;
 	public float xoffset = 0f;
@@ -16,8 +16,10 @@ public class Target : MonoBehaviour
 
 	void Start ()
 	{
-		target = GameObject.FindObjectOfType<Shootable> ().gameObject;
-		offsetTargetPos = new Vector3 (target.transform.position.x + xoffset, target.transform.position.y + yoffset, 0);
+		target = GameObject.FindObjectOfType<Shootable> ().gameObject.transform.position;
+		target = transform.parent.position;
+		//target = Input.mousePosition;
+		offsetTargetPos = new Vector3 (target.x + xoffset, target.y + yoffset, 0);
 		Vector3 pos = transform.position;
 		pos.z = 0f;
 		transform.position = pos;
@@ -26,9 +28,12 @@ public class Target : MonoBehaviour
 
 	void Update ()
 	{
+		target = transform.parent.position;
+		offsetTargetPos = new Vector3 (target.x + xoffset, target.y + yoffset, 0);
 		targetAngle = GetAngleToTarget ();
 		currentAngle = Mathf.MoveTowardsAngle (currentAngle, targetAngle, rotationSpeed * Time.deltaTime);
 		transform.position += Quaternion.Euler (0, 0, currentAngle) * Vector3.right * movementSpeed * Time.deltaTime;	
+		transform.parent.position = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 	}
 	
 	float GetAngleToTarget ()

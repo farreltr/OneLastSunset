@@ -364,7 +364,7 @@ namespace AC
 
 					if (directControl)
 					{
-						movementMethod = MovementMethod.Direct;
+						movementMethod = MovementMethod.PointAndClick;
 						inputMethod = InputMethod.KeyboardOrController;
 						hotspotDetection = HotspotDetection.PlayerVicinity;
 					}

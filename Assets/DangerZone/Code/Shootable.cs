@@ -15,7 +15,9 @@ public class Shootable : MonoBehaviour
 	{
 		hp = hp - i;
 		if (hp <= 0) {
-			Application.LoadLevel ("win");
+			//
+			this.gameObject.SetActive (false);
+			//Application.LoadLevel ("win");
 		}
 	}
 }

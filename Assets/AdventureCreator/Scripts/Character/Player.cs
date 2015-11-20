@@ -47,18 +47,15 @@ namespace AC
 
 		private void Awake ()
 		{
-			if (soundChild && soundChild.gameObject.GetComponent <AudioSource>())
-			{
-				audioSource = soundChild.gameObject.GetComponent <AudioSource>();
+			if (soundChild && soundChild.gameObject.GetComponent <AudioSource> ()) {
+				audioSource = soundChild.gameObject.GetComponent <AudioSource> ();
 			}
 
-			if (GetComponentInChildren<FirstPersonCamera>())
-			{
-				fpCam = GetComponentInChildren<FirstPersonCamera>().transform;
+			if (GetComponentInChildren<FirstPersonCamera> ()) {
+				fpCam = GetComponentInChildren<FirstPersonCamera> ().transform;
 			}
 
-			if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS)
-			{
+			if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS) {
 				isUFPSPlayer = true;
 			}
 
@@ -71,18 +68,14 @@ namespace AC
 		 */
 		public void Initialise ()
 		{
-			if (GetAnimation ())
-			{
+			if (GetAnimation ()) {
 				// Hack: Force idle of Legacy characters
 				AdvGame.PlayAnimClip (GetAnimation (), AdvGame.GetAnimLayerInt (AnimLayer.Base), idleAnim, AnimationBlendMode.Blend, WrapMode.Loop, 0f, null, false);
-			}
-			else if (spriteChild)
-			{
-				// Hack: update 2D sprites
-				if (spriteChild.GetComponent <FollowSortingMap>())
-				{
+			} else if (spriteChild) {
+				// Hack: update 2D spritesd
+				if (spriteChild.GetComponent <FollowSortingMap> ()) {
 					KickStarter.sceneSettings.ResetPlayerReference ();
-					spriteChild.GetComponent <FollowSortingMap>().UpdateSortingMap ();
+					spriteChild.GetComponent <FollowSortingMap> ().UpdateSortingMap ();
 				}
 				UpdateSpriteChild (KickStarter.settingsManager.IsTopDown (), KickStarter.settingsManager.IsUnity2D ());
 			}
@@ -95,8 +88,7 @@ namespace AC
 		 */
 		public override void _Update ()
 		{
-			if (hotspotDetector)
-			{
+			if (hotspotDetector) {
 				hotspotDetector._Update ();
 			}
 			
@@ -109,67 +101,49 @@ namespace AC
 		 */
 		public override void _FixedUpdate ()
 		{
-			if (activePath && !pausePath)
-			{
-				if (IsTurningBeforeWalking ())
-				{
+			if (activePath && !pausePath) {
+				if (IsTurningBeforeWalking ()) {
 					charState = CharState.Idle;
-				}
-				else if ((KickStarter.stateHandler && KickStarter.stateHandler.gameState == GameState.Cutscene && !lockedPath) || 
-				         (KickStarter.settingsManager && KickStarter.settingsManager.movementMethod == MovementMethod.PointAndClick) || 
-				         (KickStarter.settingsManager && KickStarter.settingsManager.movementMethod == MovementMethod.StraightToCursor && KickStarter.settingsManager.singleTapStraight) || 
-				         IsMovingToHotspot ())
-				{
+				} else if ((KickStarter.stateHandler && KickStarter.stateHandler.gameState == GameState.Cutscene && !lockedPath) || 
+					(KickStarter.settingsManager && KickStarter.settingsManager.movementMethod == MovementMethod.PointAndClick) || 
+					(KickStarter.settingsManager && KickStarter.settingsManager.movementMethod == MovementMethod.StraightToCursor && KickStarter.settingsManager.singleTapStraight) || 
+					IsMovingToHotspot ()) {
 					charState = CharState.Move;
 				}
 				
-				if (!lockedPath)
-				{
+				if (!lockedPath) {
 					CheckIfStuck ();
 				}
-			}
-			else if (activePath == null && (KickStarter.stateHandler.gameState == GameState.Cutscene || KickStarter.stateHandler.gameState == GameState.DialogOptions) && charState == CharState.Move)
-			{
+			} else if (activePath == null && (KickStarter.stateHandler.gameState == GameState.Cutscene || KickStarter.stateHandler.gameState == GameState.DialogOptions) && charState == CharState.Move) {
 				charState = CharState.Decelerate;
 			}
 
-			if (isJumping)
-			{
-				if (IsGrounded ())
-				{
+			if (isJumping) {
+				if (IsGrounded ()) {
 					isJumping = false;
 				}
 			}
 			
-			if (isTilting)
-			{
+			if (isTilting) {
 				actualTilt = Mathf.Lerp (actualTilt, targetTilt, AdvGame.Interpolate (tiltStartTime, tiltSpeed, MoveMethod.Smooth, null));
-				if (Mathf.Abs (targetTilt - actualTilt) < 2f)
-				{
+				if (Mathf.Abs (targetTilt - actualTilt) < 2f) {
 					isTilting = false;
 				}
 			}
 			
 			base._FixedUpdate ();
 			
-			if (isUFPSPlayer)
-			{
-				if (isTilting)
-				{
+			if (isUFPSPlayer) {
+				if (isTilting) {
 					UltimateFPSIntegration.SetRotation (new Vector2 (actualTilt, newRotation.eulerAngles.y));
-				}
-				else
-				{
+				} else {
 					UltimateFPSIntegration.SetPitch (newRotation.eulerAngles.y);
 				}
-			}
-			else if (isTilting)
-			{
+			} else if (isTilting) {
 				UpdateTilt ();
 			}
 			
-			if (isUFPSPlayer && activePath != null && charState == CharState.Move)
-			{
+			if (isUFPSPlayer && activePath != null && charState == CharState.Move) {
 				UltimateFPSIntegration.Teleport (transform.position);
 			}
 		}
@@ -177,18 +151,15 @@ namespace AC
 		
 		private bool IsGrounded ()
 		{
-			if (_characterController != null)
-			{
+			if (_characterController != null) {
 				return _characterController.isGrounded;
 			}
 
-			if (_rigidbody != null && Mathf.Abs (_rigidbody.velocity.y) > 0.1f)
-			{
+			if (_rigidbody != null && Mathf.Abs (_rigidbody.velocity.y) > 0.1f) {
 				return false;
 			}
 			
-			if (_collider != null)
-			{
+			if (_collider != null) {
 				return Physics.CheckCapsule (transform.position + new Vector3 (0f, _collider.bounds.size.y, 0f), transform.position + new Vector3 (0f, _collider.bounds.size.x / 4f, 0f), _collider.bounds.size.x / 2f);
 			}
 			
@@ -234,20 +205,15 @@ namespace AC
 		 */
 		public void Jump ()
 		{
-			if (isJumping)
-			{
+			if (isJumping) {
 				return;
 			}
 			
-			if (IsGrounded () && activePath == null)
-			{
-				if (_rigidbody != null)
-				{
+			if (IsGrounded () && activePath == null) {
+				if (_rigidbody != null) {
 					_rigidbody.velocity = new Vector3 (0f, KickStarter.settingsManager.jumpSpeed, 0f);
 					isJumping = true;
-				}
-				else
-				{
+				} else {
 					Debug.Log ("Player cannot jump without a Rigidbody component.");
 				}
 			}
@@ -256,8 +222,7 @@ namespace AC
 		
 		private bool IsMovingToHotspot ()
 		{
-			if (KickStarter.playerInteraction != null && KickStarter.playerInteraction.GetHotspotMovingTo () != null)
-			{
+			if (KickStarter.playerInteraction != null && KickStarter.playerInteraction.GetHotspotMovingTo () != null) {
 				return true;
 			}
 			
@@ -284,36 +249,26 @@ namespace AC
 		public void SetLockedPath (Paths pathOb)
 		{
 			// Ignore if using "point and click" or first person methods
-			if (KickStarter.settingsManager)
-			{
-				if (KickStarter.settingsManager.movementMethod == MovementMethod.Direct)
-				{
+			if (KickStarter.settingsManager) {
+				if (KickStarter.settingsManager.movementMethod == MovementMethod.PointAndClick) {
 					lockedPath = true;
 					
-					if (pathOb.pathSpeed == PathSpeed.Run)
-					{
+					if (pathOb.pathSpeed == PathSpeed.Run) {
 						isRunning = true;
-					}
-					else
-					{
+					} else {
 						isRunning = false;
 					}
 					
-					if (pathOb.affectY)
-					{
+					if (pathOb.affectY) {
 						transform.position = pathOb.transform.position;
-					}
-					else
-					{
+					} else {
 						transform.position = new Vector3 (pathOb.transform.position.x, transform.position.y, pathOb.transform.position.z);
 					}
 					
 					activePath = pathOb;
 					targetNode = 1;
 					charState = CharState.Idle;
-				}
-				else
-				{
+				} else {
 					Debug.LogWarning ("Path-constrained player movement is only available with Direct control.");
 				}
 			}
@@ -336,10 +291,8 @@ namespace AC
 		 */
 		public bool CanBeDirectControlled ()
 		{
-			if (KickStarter.stateHandler.gameState == GameState.Normal)
-			{
-				if (KickStarter.settingsManager.movementMethod == MovementMethod.Direct || KickStarter.settingsManager.movementMethod == MovementMethod.FirstPerson)
-				{
+			if (KickStarter.stateHandler.gameState == GameState.Normal) {
+				if (KickStarter.settingsManager.movementMethod == MovementMethod.PointAndClick || KickStarter.settingsManager.movementMethod == MovementMethod.FirstPerson) {
 					return KickStarter.playerInput.CanDirectControlPlayer ();
 				}
 			}
@@ -349,8 +302,7 @@ namespace AC
 				
 		protected override void Accelerate ()
 		{
-			if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS && activePath == null)
-			{
+			if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS && activePath == null) {
 				// Fixes "stuttering" effect
 				moveSpeed = 0f;
 				return;
@@ -359,31 +311,21 @@ namespace AC
 			//base.Accelerate ();
 			float targetSpeed;
 			
-			if (GetComponent <Animator>())
-			{
-				if (isRunning)
-				{
+			if (GetComponent <Animator> ()) {
+				if (isRunning) {
 					targetSpeed = runSpeedScale;
-				}
-				else
-				{
+				} else {
 					targetSpeed = walkSpeedScale;
 				}
-			}
-			else
-			{
-				if (isRunning)
-				{
+			} else {
+				if (isRunning) {
 					targetSpeed = moveDirection.magnitude * runSpeedScale / walkSpeedScale;
-				}
-				else
-				{
+				} else {
 					targetSpeed = moveDirection.magnitude;
 				}
 			}
 
-			if (KickStarter.settingsManager.magnitudeAffectsDirect && KickStarter.settingsManager.movementMethod == MovementMethod.Direct && KickStarter.stateHandler.gameState == GameState.Normal && !IsMovingToHotspot ())
-			{
+			if (KickStarter.settingsManager.magnitudeAffectsDirect && KickStarter.settingsManager.movementMethod == MovementMethod.PointAndClick && KickStarter.stateHandler.gameState == GameState.Normal && !IsMovingToHotspot ()) {
 				targetSpeed -= (1f - KickStarter.playerInput.GetMoveKeys ().magnitude) / 2f;
 			}
 			
@@ -393,12 +335,9 @@ namespace AC
 		
 		private void UpdateTilt ()
 		{
-			if (fpCam && fpCam.GetComponent <FirstPersonCamera>())
-			{
-				fpCam.GetComponent <FirstPersonCamera>().SetPitch (actualTilt);
-			}
-			else if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS)
-			{
+			if (fpCam && fpCam.GetComponent <FirstPersonCamera> ()) {
+				fpCam.GetComponent <FirstPersonCamera> ().SetPitch (actualTilt);
+			} else if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS) {
 				UltimateFPSIntegration.SetTilt (actualTilt);
 			}
 		}
@@ -411,43 +350,33 @@ namespace AC
 		 */
 		public void SetTilt (Vector3 lookAtPosition, bool isInstant)
 		{
-			if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS)
-			{
+			if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS) {
 				fpCam = UltimateFPSIntegration.GetFPCamTransform ();
 			}
 
-			if (fpCam == null)
-			{
+			if (fpCam == null) {
 				return;
 			}
 			
-			if (isInstant)
-			{
+			if (isInstant) {
 				isTilting = false;
 				
 				transform.LookAt (lookAtPosition);
 				float tilt = transform.localEulerAngles.x;
-				if (targetTilt > 180)
-				{
+				if (targetTilt > 180) {
 					targetTilt = targetTilt - 360;
 				}
 				
-				if (fpCam && fpCam.GetComponent <FirstPersonCamera>())
-				{
-					fpCam.GetComponent <FirstPersonCamera>().SetPitch (tilt);
-				}
-				else if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS)
-				{
+				if (fpCam && fpCam.GetComponent <FirstPersonCamera> ()) {
+					fpCam.GetComponent <FirstPersonCamera> ().SetPitch (tilt);
+				} else if (KickStarter.settingsManager.movementMethod == MovementMethod.UltimateFPS) {
 					UltimateFPSIntegration.SetTilt (tilt);
 				}
-			}
-			else
-			{
+			} else {
 				// Base the speed of tilt change on how much horizontal rotation is needed
 				
 				actualTilt = fpCam.eulerAngles.x;
-				if (actualTilt > 180)
-				{
+				if (actualTilt > 180) {
 					actualTilt = actualTilt - 360;
 				}
 				
@@ -455,8 +384,7 @@ namespace AC
 				fpCam.transform.LookAt (lookAtPosition);
 				targetTilt = fpCam.localEulerAngles.x;
 				fpCam.rotation = oldRotation;
-				if (targetTilt > 180)
-				{
+				if (targetTilt > 180) {
 					targetTilt = targetTilt - 360;
 				}
 				
@@ -479,12 +407,9 @@ namespace AC
 		 */
 		override public void SetHeadTurnTarget (Vector3 position, bool isInstant, HeadFacing _headFacing = HeadFacing.Manual)
 		{
-			if (_headFacing == HeadFacing.Hotspot && lockHotspotHeadTurning)
-			{
+			if (_headFacing == HeadFacing.Hotspot && lockHotspotHeadTurning) {
 				ClearHeadTurnTarget (false, HeadFacing.Hotspot);
-			}
-			else
-			{
+			} else {
 				base.SetHeadTurnTarget (position, isInstant, _headFacing);
 			}
 		}
@@ -518,22 +443,17 @@ namespace AC
 			playerData.playerRunSpeed = runSpeedScale;
 			
 			// Animation clips
-			if (animationEngine == AnimationEngine.Sprites2DToolkit || animationEngine == AnimationEngine.SpritesUnity)
-			{
+			if (animationEngine == AnimationEngine.Sprites2DToolkit || animationEngine == AnimationEngine.SpritesUnity) {
 				playerData.playerIdleAnim = idleAnimSprite;
 				playerData.playerWalkAnim = walkAnimSprite;
 				playerData.playerRunAnim = runAnimSprite;
 				playerData.playerTalkAnim = talkAnimSprite;
-			}
-			else if (animationEngine == AnimationEngine.Legacy)
-			{
+			} else if (animationEngine == AnimationEngine.Legacy) {
 				playerData.playerIdleAnim = AssetLoader.GetAssetInstanceID (idleAnim);
 				playerData.playerWalkAnim = AssetLoader.GetAssetInstanceID (walkAnim);
 				playerData.playerRunAnim = AssetLoader.GetAssetInstanceID (runAnim);
 				playerData.playerTalkAnim = AssetLoader.GetAssetInstanceID (talkAnim);
-			}
-			else if (animationEngine == AnimationEngine.Mecanim)
-			{
+			} else if (animationEngine == AnimationEngine.Mecanim) {
 				playerData.playerWalkAnim = moveSpeedParameter;
 				playerData.playerTalkAnim = talkParameter;
 				playerData.playerRunAnim = turnParameter;
@@ -550,55 +470,42 @@ namespace AC
 			// Rendering
 			playerData.playerLockDirection = lockDirection;
 			playerData.playerLockScale = lockScale;
-			if (spriteChild && spriteChild.GetComponent <FollowSortingMap>())
-			{
-				playerData.playerLockSorting = spriteChild.GetComponent <FollowSortingMap>().lockSorting;
-			}
-			else if (GetComponent <FollowSortingMap>())
-			{
-				playerData.playerLockSorting = GetComponent <FollowSortingMap>().lockSorting;
-			}
-			else
-			{
+			if (spriteChild && spriteChild.GetComponent <FollowSortingMap> ()) {
+				playerData.playerLockSorting = spriteChild.GetComponent <FollowSortingMap> ().lockSorting;
+			} else if (GetComponent <FollowSortingMap> ()) {
+				playerData.playerLockSorting = GetComponent <FollowSortingMap> ().lockSorting;
+			} else {
 				playerData.playerLockSorting = false;
 			}
 			playerData.playerSpriteDirection = spriteDirection;
 			playerData.playerSpriteScale = spriteScale;
-			if (spriteChild && spriteChild.GetComponent <Renderer>())
-			{
-				playerData.playerSortingOrder = spriteChild.GetComponent <Renderer>().sortingOrder;
-				playerData.playerSortingLayer = spriteChild.GetComponent <Renderer>().sortingLayerName;
-			}
-			else if (GetComponent <Renderer>())
-			{
-				playerData.playerSortingOrder = GetComponent <Renderer>().sortingOrder;
-				playerData.playerSortingLayer = GetComponent <Renderer>().sortingLayerName;
+			if (spriteChild && spriteChild.GetComponent <Renderer> ()) {
+				playerData.playerSortingOrder = spriteChild.GetComponent <Renderer> ().sortingOrder;
+				playerData.playerSortingLayer = spriteChild.GetComponent <Renderer> ().sortingLayerName;
+			} else if (GetComponent <Renderer> ()) {
+				playerData.playerSortingOrder = GetComponent <Renderer> ().sortingOrder;
+				playerData.playerSortingLayer = GetComponent <Renderer> ().sortingLayerName;
 			}
 			
 			playerData.playerActivePath = 0;
 			playerData.lastPlayerActivePath = 0;
-			if (GetPath ())
-			{
+			if (GetPath ()) {
 				playerData.playerTargetNode = GetTargetNode ();
 				playerData.playerPrevNode = GetPrevNode ();
 				playerData.playerIsRunning = isRunning;
 				playerData.playerPathAffectY = activePath.affectY;
 				
-				if (GetComponent <Paths>() && GetPath () == GetComponent <Paths>())
-				{
-					playerData.playerPathData = Serializer.CreatePathData (GetComponent <Paths>());
+				if (GetComponent <Paths> () && GetPath () == GetComponent <Paths> ()) {
+					playerData.playerPathData = Serializer.CreatePathData (GetComponent <Paths> ());
 					playerData.playerLockedPath = false;
-				}
-				else
-				{
+				} else {
 					playerData.playerPathData = "";
 					playerData.playerActivePath = Serializer.GetConstantID (GetPath ().gameObject);
 					playerData.playerLockedPath = lockedPath;
 				}
 			}
 			
-			if (GetLastPath ())
-			{
+			if (GetLastPath ()) {
 				playerData.lastPlayerTargetNode = GetLastTargetNode ();
 				playerData.lastPlayerPrevNode = GetLastPrevNode ();
 				playerData.lastPlayerActivePath = Serializer.GetConstantID (GetLastPath ().gameObject);
@@ -608,15 +515,12 @@ namespace AC
 			
 			// Head target
 			playerData.playerLockHotspotHeadTurning = lockHotspotHeadTurning;
-			if (headFacing == HeadFacing.Manual)
-			{
+			if (headFacing == HeadFacing.Manual) {
 				playerData.isHeadTurning = true;
 				playerData.headTargetX = headTurnTarget.x;
 				playerData.headTargetY = headTurnTarget.y;
 				playerData.headTargetZ = headTurnTarget.z;
-			}
-			else
-			{
+			} else {
 				playerData.isHeadTurning = false;
 				playerData.headTargetX = 0f;
 				playerData.headTargetY = 0f;
@@ -640,22 +544,17 @@ namespace AC
 			runSpeedScale = playerData.playerRunSpeed;
 			
 			// Animation clips
-			if (animationEngine == AnimationEngine.Sprites2DToolkit || animationEngine == AnimationEngine.SpritesUnity)
-			{
+			if (animationEngine == AnimationEngine.Sprites2DToolkit || animationEngine == AnimationEngine.SpritesUnity) {
 				idleAnimSprite = playerData.playerIdleAnim;
 				walkAnimSprite = playerData.playerWalkAnim;
 				talkAnimSprite = playerData.playerTalkAnim;
 				runAnimSprite = playerData.playerRunAnim;
-			}
-			else if (animationEngine == AnimationEngine.Legacy)
-			{
+			} else if (animationEngine == AnimationEngine.Legacy) {
 				idleAnim = AssetLoader.RetrieveAsset <AnimationClip> (idleAnim, playerData.playerIdleAnim);
 				walkAnim = AssetLoader.RetrieveAsset <AnimationClip> (walkAnim, playerData.playerWalkAnim);
 				talkAnim = AssetLoader.RetrieveAsset <AnimationClip> (talkAnim, playerData.playerTalkAnim);
 				runAnim = AssetLoader.RetrieveAsset <AnimationClip> (runAnim, playerData.playerRunAnim);
-			}
-			else if (animationEngine == AnimationEngine.Mecanim)
-			{
+			} else if (animationEngine == AnimationEngine.Mecanim) {
 				moveSpeedParameter = playerData.playerWalkAnim;
 				talkParameter = playerData.playerTalkAnim;
 				turnParameter = playerData.playerRunAnim;
@@ -672,38 +571,27 @@ namespace AC
 			// Rendering
 			lockDirection = playerData.playerLockDirection;
 			lockScale = playerData.playerLockScale;
-			if (spriteChild && spriteChild.GetComponent <FollowSortingMap>())
-			{
-				spriteChild.GetComponent <FollowSortingMap>().lockSorting = playerData.playerLockSorting;
-			}
-			else if (GetComponent <FollowSortingMap>())
-			{
-				GetComponent <FollowSortingMap>().lockSorting = playerData.playerLockSorting;
-			}
-			else
-			{
+			if (spriteChild && spriteChild.GetComponent <FollowSortingMap> ()) {
+				spriteChild.GetComponent <FollowSortingMap> ().lockSorting = playerData.playerLockSorting;
+			} else if (GetComponent <FollowSortingMap> ()) {
+				GetComponent <FollowSortingMap> ().lockSorting = playerData.playerLockSorting;
+			} else {
 				ReleaseSorting ();
 			}
 			
-			if (playerData.playerLockDirection)
-			{
+			if (playerData.playerLockDirection) {
 				spriteDirection = playerData.playerSpriteDirection;
 			}
-			if (playerData.playerLockScale)
-			{
+			if (playerData.playerLockScale) {
 				spriteScale = playerData.playerSpriteScale;
 			}
-			if (playerData.playerLockSorting)
-			{
-				if (spriteChild && spriteChild.GetComponent <Renderer>())
-				{
-					spriteChild.GetComponent <Renderer>().sortingOrder = playerData.playerSortingOrder;
-					spriteChild.GetComponent <Renderer>().sortingLayerName = playerData.playerSortingLayer;
-				}
-				else if (GetComponent <Renderer>())
-				{
-					GetComponent <Renderer>().sortingOrder = playerData.playerSortingOrder;
-					GetComponent <Renderer>().sortingLayerName = playerData.playerSortingLayer;
+			if (playerData.playerLockSorting) {
+				if (spriteChild && spriteChild.GetComponent <Renderer> ()) {
+					spriteChild.GetComponent <Renderer> ().sortingOrder = playerData.playerSortingOrder;
+					spriteChild.GetComponent <Renderer> ().sortingLayerName = playerData.playerSortingLayer;
+				} else if (GetComponent <Renderer> ()) {
+					GetComponent <Renderer> ().sortingOrder = playerData.playerSortingOrder;
+					GetComponent <Renderer> ().sortingLayerName = playerData.playerSortingLayer;
 				}
 			}
 			
@@ -711,50 +599,38 @@ namespace AC
 			Halt ();
 			ForceIdle ();
 			
-			if (playerData.playerPathData != null && playerData.playerPathData != "" && GetComponent <Paths>())
-			{
-				Paths savedPath = GetComponent <Paths>();
+			if (playerData.playerPathData != null && playerData.playerPathData != "" && GetComponent <Paths> ()) {
+				Paths savedPath = GetComponent <Paths> ();
 				savedPath = Serializer.RestorePathData (savedPath, playerData.playerPathData);
 				SetPath (savedPath, playerData.playerTargetNode, playerData.playerPrevNode, playerData.playerPathAffectY);
 				isRunning = playerData.playerIsRunning;
 				lockedPath = false;
-			}
-			else if (playerData.playerActivePath != 0)
-			{
+			} else if (playerData.playerActivePath != 0) {
 				Paths savedPath = Serializer.returnComponent <Paths> (playerData.playerActivePath);
-				if (savedPath)
-				{
+				if (savedPath) {
 					lockedPath = playerData.playerLockedPath;
 					
-					if (lockedPath)
-					{
+					if (lockedPath) {
 						SetLockedPath (savedPath);
-					}
-					else
-					{
+					} else {
 						SetPath (savedPath, playerData.playerTargetNode, playerData.playerPrevNode);
 					}
 				}
 			}
 			
 			// Previous path
-			if (playerData.lastPlayerActivePath != 0)
-			{
+			if (playerData.lastPlayerActivePath != 0) {
 				Paths savedPath = Serializer.returnComponent <Paths> (playerData.lastPlayerActivePath);
-				if (savedPath)
-				{
+				if (savedPath) {
 					SetLastPath (savedPath, playerData.lastPlayerTargetNode, playerData.lastPlayerPrevNode);
 				}
 			}
 			
 			// Head target
 			lockHotspotHeadTurning = playerData.playerLockHotspotHeadTurning;
-			if (playerData.isHeadTurning)
-			{
+			if (playerData.isHeadTurning) {
 				SetHeadTurnTarget (new Vector3 (playerData.headTargetX, playerData.headTargetY, playerData.headTargetZ), true);
-			}
-			else
-			{
+			} else {
 				ClearHeadTurnTarget (true);
 			}
 			
@@ -788,18 +664,14 @@ namespace AC
 			ID = 0;
 			playerOb = null;
 			
-			if (idArray.Length > 0)
-			{
+			if (idArray.Length > 0) {
 				isDefault = false;
 				
-				foreach (int _id in idArray)
-				{
+				foreach (int _id in idArray) {
 					if (ID == _id)
 						ID ++;
 				}
-			}
-			else
-			{
+			} else {
 				isDefault = true;
 			}
 		}

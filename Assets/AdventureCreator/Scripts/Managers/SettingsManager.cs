@@ -151,11 +151,11 @@ namespace AC
 		public float walkableClickRange = 0.5f;
 		/** If True, and movementMethod = AC_MovementMethod.PointAndClick, then the user will have to double-click to move the player */
 		public bool doubleClickMovement = false;
-		/** If True, and movementMethod = AC_MovementMethod.Direct, then the magnitude of the input axis will affect the Player's speed */
+		/** If True, and movementMethod = AC_MovementMethod.PointAndClick, then the magnitude of the input axis will affect the Player's speed */
 		public bool magnitudeAffectsDirect = false;
-		/** If True, and movementMethod = AC_MovementMethod.Direct, then the Player will turn instantly when moving during gameplay */
+		/** If True, and movementMethod = AC_MovementMethod.PointAndClick, then the Player will turn instantly when moving during gameplay */
 		public bool directTurnsInstantly = false;
-		/** How the player moves, if movementMethod = AC_MovementMethod.Direct (RelativeToCamera, TankControls) */
+		/** How the player moves, if movementMethod = AC_MovementMethod.PointAndClick (RelativeToCamera, TankControls) */
 		public DirectMovementType directMovementType = DirectMovementType.RelativeToCamera;
 		/** How to limit the player's moement, if directMovementType = DirectMovementType.RelativeToCamera */
 		public LimitDirectMovement limitDirectMovement = LimitDirectMovement.NoLimit;
@@ -574,7 +574,7 @@ namespace AC
 					dragLineColor = EditorGUILayout.ColorField ("Drag line colour:", dragLineColor);
 				}
 			}
-			else if (movementMethod == MovementMethod.Direct)
+			else if (movementMethod == MovementMethod.PointAndClick)
 			{
 				magnitudeAffectsDirect = EditorGUILayout.ToggleLeft ("Input magnitude affects speed?", magnitudeAffectsDirect);
 				directTurnsInstantly = EditorGUILayout.ToggleLeft ("Turn instantly when under player control?", directTurnsInstantly);
@@ -608,7 +608,7 @@ namespace AC
 					singleTapStraightPathfind = EditorGUILayout.ToggleLeft ("Pathfind when single-clicking?", singleTapStraightPathfind);
 				}
 			}
-			if ((movementMethod == MovementMethod.Direct || movementMethod == MovementMethod.FirstPerson) && inputMethod != InputMethod.TouchScreen)
+			if ((movementMethod == MovementMethod.PointAndClick || movementMethod == MovementMethod.FirstPerson) && inputMethod != InputMethod.TouchScreen)
 			{
 				jumpSpeed = EditorGUILayout.Slider ("Jump speed:", jumpSpeed, 1f, 10f);
 			}
@@ -667,7 +667,7 @@ namespace AC
 			EditorGUILayout.LabelField ("Hotpot settings", EditorStyles.boldLabel);
 			
 			hotspotDetection = (HotspotDetection) EditorGUILayout.EnumPopup ("Hotspot detection method:", hotspotDetection);
-			if (hotspotDetection == HotspotDetection.PlayerVicinity && (movementMethod == MovementMethod.Direct || IsInFirstPerson ()))
+			if (hotspotDetection == HotspotDetection.PlayerVicinity && (movementMethod == MovementMethod.PointAndClick || IsInFirstPerson ()))
 			{
 				hotspotsInVicinity = (HotspotsInVicinity) EditorGUILayout.EnumPopup ("Hotspots in vicinity:", hotspotsInVicinity);
 			}
@@ -822,7 +822,7 @@ namespace AC
 				result += "- ToggleCursor (Button)";
 			}
 			
-			if (movementMethod == MovementMethod.Direct || movementMethod == MovementMethod.FirstPerson || inputMethod == InputMethod.KeyboardOrController)
+			if (movementMethod == MovementMethod.PointAndClick || movementMethod == MovementMethod.FirstPerson || inputMethod == InputMethod.KeyboardOrController)
 			{
 				if (inputMethod != InputMethod.TouchScreen)
 				{
@@ -831,7 +831,7 @@ namespace AC
 					result += "\n";
 					result += "- Vertical (Axis)";
 					
-					if (movementMethod == MovementMethod.Direct || movementMethod == MovementMethod.FirstPerson)
+					if (movementMethod == MovementMethod.PointAndClick || movementMethod == MovementMethod.FirstPerson)
 					{
 						result += "\n";
 						result += "- Run (Button/Axis)";
@@ -852,7 +852,7 @@ namespace AC
 					result += "- CursorVertical (Axis)";
 				}
 				
-				if ((movementMethod == MovementMethod.Direct || movementMethod == MovementMethod.FirstPerson)
+				if ((movementMethod == MovementMethod.PointAndClick || movementMethod == MovementMethod.FirstPerson)
 				    && (hotspotDetection == HotspotDetection.PlayerVicinity && hotspotsInVicinity == HotspotsInVicinity.CycleMultiple))
 				{
 					result += "\n";

@@ -20,9 +20,13 @@ public class NPCController : MonoBehaviour
 	{
 		Random.seed = System.DateTime.Now.Millisecond * 10373289;
 		renderer = this.GetComponent<SpriteRenderer> ();
+		if (renderer == null) {
+			this.GetComponentInChildren<SpriteRenderer> ();
+		}
 		player = GameObject.FindObjectOfType<PlayerController> ();
 		barkTrigger = this.GetComponent<BarkTrigger> ();
-		InvokeRepeating ("Toggle", 3f, 0.5f);
+		//InvokeRepeating ("Toggle", 3f, 0.5f);
+		isStanding = true;
 	}
 
 
